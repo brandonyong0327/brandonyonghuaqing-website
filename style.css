@@ -1621,9 +1621,25 @@ body.is-leaving {
 .dim { color: var(--dim); }
 
 /* ---------- 23. RESPONSIVE ---------- */
-@media (max-width: 1320px) {
+/* The three rails are decoration, not content: they only exist on a screen
+   that is genuinely wide AND not touch-driven. Narrow screens, tablets and
+   phones (including desktop-mode browsers reporting a 1000px+ viewport)
+   drop them entirely so they can never cover the hero or each other. */
+@media (max-width: 1560px), (pointer: coarse), (hover: none) {
   .hud-panel { display: none; }
   .sys-status { display: none; }
+}
+
+/* On wide-but-short screens the fixed rails would grow into one another
+   (left rail bottom ≈ status panel top), so they scale down as a block. */
+@media (min-width: 1561px) and (max-height: 840px) {
+  .hud-panel { zoom: 0.84; }
+  .sys-status { zoom: 0.9; }
+}
+
+@media (min-width: 1561px) and (max-height: 720px) {
+  .hud-panel { zoom: 0.72; }
+  .sys-status { zoom: 0.8; }
 }
 
 @media (max-width: 900px) {
@@ -1711,6 +1727,18 @@ body.is-leaving {
   .controlbar { gap: 0.55rem; padding: 0 10px; overflow: hidden; }
   .controlbar .cb-item:nth-child(5) { display: none; }
   .bh-stage { max-width: 240px; }
+}
+
+/* ---------- 23B. TOUCH PERFORMANCE ---------- */
+/* Backdrop blur is the single most expensive effect on a phone GPU and it
+   runs on the fixed topbar / every card while scrolling. The glass look is
+   carried by borders, gradients and glows anyway, so drop the blur only. */
+@media (pointer: coarse), (hover: none) {
+  .topbar, .nav, .hud-card, .table-shell, .video-shell,
+  .sys-status, .boot-overlay, .controlbar, .hud-panel {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 }
 
 /* ---------- 24. IMPACT SHAKE ---------- */

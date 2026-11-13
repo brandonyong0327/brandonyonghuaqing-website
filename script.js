@@ -6,7 +6,12 @@
 (function () {
   'use strict';
 
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  /* A phone at DPR 3 paints nine times the pixels of a 1x display for the same
+     CSS box, and this page repaints two full-screen canvases every frame. Cap
+     the backing store hard on touch devices, keep the crisp 2x on desktop. */
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var isMobile = coarse || /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(navigator.userAgent);
+  var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.4 : 2);
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -----------------------------------------------------------
@@ -43,6 +48,61 @@
   var ticksX = [];
   var ticksY = [];
   var meteors = [];
+  var bgLayer = null;
+
+  /* The dashed grid and the edge ruler ticks are identical on every frame, yet
+     they cost ~400 stroke() calls per frame on a wide screen. Paint them once
+     into an offscreen canvas and blit that instead. */
+  function paintGrid(x, w, h) {
+    x.strokeStyle = 'rgba(53, 231, 255, 0.038)';
+    x.lineWidth = 1;
+    x.setLineDash([13, 39]);
+    for (var gx = 0; gx <= w + 52; gx += 52) {
+      x.beginPath(); x.moveTo(gx, -20); x.lineTo(gx, h + 20); x.stroke();
+    }
+    for (var gy = 0; gy <= h + 52; gy += 52) {
+      x.beginPath(); x.moveTo(-20, gy); x.lineTo(w + 20, gy); x.stroke();
+    }
+    x.setLineDash([]);
+
+    x.strokeStyle = 'rgba(53, 231, 255, 0.07)';
+    for (var i1 = 0; i1 < ticksX.length; i1++) {
+      var long1 = i1 % 4 === 0;
+      x.beginPath();
+      x.moveTo(ticksX[i1], 0);
+      x.lineTo(ticksX[i1], long1 ? 9 : 4);
+      x.stroke();
+      x.beginPath();
+      x.moveTo(ticksX[i1], h);
+      x.lineTo(ticksX[i1], h - (long1 ? 9 : 4));
+      x.stroke();
+    }
+    for (var i2 = 0; i2 < ticksY.length; i2++) {
+      var long2 = i2 % 4 === 0;
+      x.beginPath();
+      x.moveTo(0, ticksY[i2]);
+      x.lineTo(long2 ? 9 : 4, ticksY[i2]);
+      x.stroke();
+      x.beginPath();
+      x.moveTo(w, ticksY[i2]);
+      x.lineTo(w - (long2 ? 9 : 4), ticksY[i2]);
+      x.stroke();
+    }
+  }
+
+  function buildBgLayer(w, h) {
+    var pad = 10;
+    var c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round((w + pad * 2) * dpr));
+    c.height = Math.max(1, Math.round((h + pad * 2) * dpr));
+    var x = c.getContext('2d');
+    if (!x) return null;
+    x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    x.translate(pad, pad);
+    paintGrid(x, w, h);
+    c.__pad = pad;
+    return c;
+  }
 
   function buildSpace() {
     space = fit(spaceEl);
@@ -94,6 +154,8 @@
     ticksY = [];
     for (var ty = 0; ty < Math.floor(h / 26); ty++) ticksY.push(ty * 26);
 
+    bgLayer = buildBgLayer(w, h);
+
     meteors = [];
     for (var m = 0; m < (w < 820 ? 1 : 2); m++) {
       meteors.push({ x: 0, y: 0, life: 0, delay: 6 + rnd(m * 83.3) * 14, speed: 0 });
@@ -110,41 +172,12 @@
     // gentle parallax for the whole star field
     ctx.translate(mx * 6, my * 6);
 
-    // --- faint tech grid (dashed so it reads as HUD ticks, not a stray rule) ---
-    ctx.strokeStyle = 'rgba(53, 231, 255, 0.038)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([13, 39]);
-    for (var gx = 0; gx <= w + 52; gx += 52) {
-      ctx.beginPath(); ctx.moveTo(gx, -20); ctx.lineTo(gx, h + 20); ctx.stroke();
-    }
-    for (var gy = 0; gy <= h + 52; gy += 52) {
-      ctx.beginPath(); ctx.moveTo(-20, gy); ctx.lineTo(w + 20, gy); ctx.stroke();
-    }
-    ctx.setLineDash([]);
-
-    // --- coordinate ticks along edges ---
-    ctx.strokeStyle = 'rgba(53, 231, 255, 0.07)';
-    for (var i1 = 0; i1 < ticksX.length; i1++) {
-      var long1 = i1 % 4 === 0;
-      ctx.beginPath();
-      ctx.moveTo(ticksX[i1], 0);
-      ctx.lineTo(ticksX[i1], long1 ? 9 : 4);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(ticksX[i1], h);
-      ctx.lineTo(ticksX[i1], h - (long1 ? 9 : 4));
-      ctx.stroke();
-    }
-    for (var i2 = 0; i2 < ticksY.length; i2++) {
-      var long2 = i2 % 4 === 0;
-      ctx.beginPath();
-      ctx.moveTo(0, ticksY[i2]);
-      ctx.lineTo(long2 ? 9 : 4, ticksY[i2]);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(w, ticksY[i2]);
-      ctx.lineTo(w - (long2 ? 9 : 4), ticksY[i2]);
-      ctx.stroke();
+    // --- static ruler layer: grid + edge ticks, painted once and blitted ---
+    if (bgLayer) {
+      var bgPad = bgLayer.__pad;
+      ctx.drawImage(bgLayer, -bgPad, -bgPad, w + bgPad * 2, h + bgPad * 2);
+    } else {
+      paintGrid(ctx, w, h);
     }
 
     // --- orbit arcs ---
@@ -182,7 +215,7 @@
         : 'rgba(190, 235, 255, ' + alpha + ')';
       ctx.fill();
 
-      if (st.r > 1.05) {
+      if (!isMobile && st.r > 1.05) {
         ctx.globalAlpha = alpha * 0.5;
         ctx.fillStyle = 'rgba(53, 231, 255, 0.5)';
         ctx.beginPath();
@@ -958,9 +991,19 @@
   var mx = 0, my = 0, tmx = 0, tmy = 0;
   var startTime = performance.now();
   var rafId = null;
+  /* the scene is slow by design, so 30fps on touch devices looks identical
+     while halving the per-frame cost */
+  var frameGap = isMobile ? 32 : 0;
+  var lastFrame = 0;
 
   function loop() {
-    var t = performance.now() - startTime;
+    var now = performance.now();
+    if (frameGap && now - lastFrame < frameGap) {
+      rafId = document.hidden ? null : requestAnimationFrame(loop);
+      return;
+    }
+    lastFrame = now;
+    var t = now - startTime;
     mx += (tmx - mx) * 0.06;
     my += (tmy - my) * 0.06;
 
