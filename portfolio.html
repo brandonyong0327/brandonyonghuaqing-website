@@ -40,50 +40,9 @@
   <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
 </header>
 
-<aside class="hud-panel hud-left">
-  <div class="panel-head">ARCHIVE INDEX <b>03</b></div>
-  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>OBJECTS</span><b class="cyan">04</b></div>
-  <div class="panel-row"><span>DEPLOYED</span><b>04</b></div>
-  <div class="panel-row"><span>IN BUILD</span><b>00</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">BUILD LOAD</div>
-  <div class="ticks">
-    <i style="height:52%; animation-delay:0s"></i>
-    <i style="height:78%; animation-delay:.3s"></i>
-    <i style="height:46%; animation-delay:.6s"></i>
-    <i style="height:88%; animation-delay:.9s"></i>
-    <i style="height:60%; animation-delay:1.2s"></i>
-    <i style="height:72%; animation-delay:1.5s"></i>
-    <i style="height:44%; animation-delay:1.8s"></i>
-    <i style="height:84%; animation-delay:2.1s"></i>
-    <i style="height:58%; animation-delay:2.4s"></i>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-row"><span>STACK</span><b class="purple">HTML/CSS/JS</b></div>
-  <div class="panel-row"><span>MEDIA</span><b>04 IMG</b></div>
-  <div class="meter"><i></i></div>
-</aside>
 
-<aside class="hud-panel hud-right">
-  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
-  <div class="radar">
-    <span class="radar-cross"></span>
-    <span class="radar-sweep"></span>
-    <span class="radar-blip" style="--a:24deg; --r:40%; --d:.4s"></span>
-    <span class="radar-blip" style="--a:112deg; --r:62%; --d:1.4s"></span>
-    <span class="radar-blip" style="--a:206deg; --r:32%; --d:2.6s"></span>
-    <span class="radar-blip" style="--a:288deg; --r:50%; --d:3.6s"></span>
-  </div>
-  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
-  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">OBJECT TYPES</div>
-  <div class="panel-row"><span>WEB</span><b>02</b></div>
-  <div class="panel-row"><span>DESKTOP</span><b>01</b></div>
-  <div class="panel-row"><span>MOBILE</span><b>01</b></div>
-  <div class="meter"><i style="animation-delay:2s"></i></div>
-</aside>
+
+
 
 <main class="shell">
 
@@ -230,6 +189,51 @@
   </section>
 
 </main>
+<section class="hud-tray" aria-hidden="true">
+<aside class="hud-panel hud-left">
+  <div class="panel-head">ARCHIVE INDEX <b>03</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>OBJECTS</span><b class="cyan">04</b></div>
+  <div class="panel-row"><span>DEPLOYED</span><b>04</b></div>
+  <div class="panel-row"><span>IN BUILD</span><b>00</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">BUILD LOAD</div>
+  <div class="ticks">
+    <i style="height:52%; animation-delay:0s"></i>
+    <i style="height:78%; animation-delay:.3s"></i>
+    <i style="height:46%; animation-delay:.6s"></i>
+    <i style="height:88%; animation-delay:.9s"></i>
+    <i style="height:60%; animation-delay:1.2s"></i>
+    <i style="height:72%; animation-delay:1.5s"></i>
+    <i style="height:44%; animation-delay:1.8s"></i>
+    <i style="height:84%; animation-delay:2.1s"></i>
+    <i style="height:58%; animation-delay:2.4s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>STACK</span><b class="purple">HTML/CSS/JS</b></div>
+  <div class="panel-row"><span>MEDIA</span><b>04 IMG</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:24deg; --r:40%; --d:.4s"></span>
+    <span class="radar-blip" style="--a:112deg; --r:62%; --d:1.4s"></span>
+    <span class="radar-blip" style="--a:206deg; --r:32%; --d:2.6s"></span>
+    <span class="radar-blip" style="--a:288deg; --r:50%; --d:3.6s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">OBJECT TYPES</div>
+  <div class="panel-row"><span>WEB</span><b>02</b></div>
+  <div class="panel-row"><span>DESKTOP</span><b>01</b></div>
+  <div class="panel-row"><span>MOBILE</span><b>01</b></div>
+  <div class="meter"><i style="animation-delay:2s"></i></div>
+</aside>
 
 <aside class="sys-status">
   <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
@@ -239,6 +243,10 @@
   <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
   <div class="ss-bar"><i id="sysBar"></i></div>
 </aside>
+</section>
+
+
+
 
 <footer class="controlbar">
   <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>

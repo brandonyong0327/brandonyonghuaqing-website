@@ -40,45 +40,9 @@
   <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
 </header>
 
-<aside class="hud-panel hud-left">
-  <div class="panel-head">FEEDBACK LINK <b>05</b></div>
-  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>TERMINAL</span><b class="cyan">READY</b></div>
-  <div class="panel-row"><span>CHANNEL</span><b>UPLINK 05</b></div>
-  <div class="panel-row"><span>ENCRYPT</span><b class="purple">ON</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">INPUT LOAD</div>
-  <div class="ticks">
-    <i style="height:40%; animation-delay:0s"></i>
-    <i style="height:64%; animation-delay:.3s"></i>
-    <i style="height:52%; animation-delay:.6s"></i>
-    <i style="height:80%; animation-delay:.9s"></i>
-    <i style="height:46%; animation-delay:1.2s"></i>
-    <i style="height:70%; animation-delay:1.5s"></i>
-    <i style="height:56%; animation-delay:1.8s"></i>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-row"><span>FIELDS</span><b>04</b></div>
-  <div class="panel-row"><span>VALIDATE</span><b>JS</b></div>
-  <div class="meter"><i></i></div>
-</aside>
 
-<aside class="hud-panel hud-right">
-  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
-  <div class="radar">
-    <span class="radar-cross"></span>
-    <span class="radar-sweep"></span>
-    <span class="radar-blip" style="--a:40deg; --r:52%; --d:.7s"></span>
-    <span class="radar-blip" style="--a:222deg; --r:34%; --d:2.4s"></span>
-  </div>
-  <div class="panel-row"><span>TRACKING</span><b class="cyan">2 OBJECTS</b></div>
-  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">CONTACT ROUTES</div>
-  <div class="panel-row"><span>EMAIL</span><b>01</b></div>
-  <div class="panel-row"><span>SOCIAL</span><b>03</b></div>
-  <div class="meter"><i style="animation-delay:1.8s"></i></div>
-</aside>
+
+
 
 <main class="shell">
 
@@ -163,6 +127,46 @@
   </section>
 
 </main>
+<section class="hud-tray" aria-hidden="true">
+<aside class="hud-panel hud-left">
+  <div class="panel-head">FEEDBACK LINK <b>05</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>TERMINAL</span><b class="cyan">READY</b></div>
+  <div class="panel-row"><span>CHANNEL</span><b>UPLINK 05</b></div>
+  <div class="panel-row"><span>ENCRYPT</span><b class="purple">ON</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">INPUT LOAD</div>
+  <div class="ticks">
+    <i style="height:40%; animation-delay:0s"></i>
+    <i style="height:64%; animation-delay:.3s"></i>
+    <i style="height:52%; animation-delay:.6s"></i>
+    <i style="height:80%; animation-delay:.9s"></i>
+    <i style="height:46%; animation-delay:1.2s"></i>
+    <i style="height:70%; animation-delay:1.5s"></i>
+    <i style="height:56%; animation-delay:1.8s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>FIELDS</span><b>04</b></div>
+  <div class="panel-row"><span>VALIDATE</span><b>JS</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:40deg; --r:52%; --d:.7s"></span>
+    <span class="radar-blip" style="--a:222deg; --r:34%; --d:2.4s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">2 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">CONTACT ROUTES</div>
+  <div class="panel-row"><span>EMAIL</span><b>01</b></div>
+  <div class="panel-row"><span>SOCIAL</span><b>03</b></div>
+  <div class="meter"><i style="animation-delay:1.8s"></i></div>
+</aside>
 
 <aside class="sys-status">
   <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
@@ -172,6 +176,10 @@
   <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
   <div class="ss-bar"><i id="sysBar"></i></div>
 </aside>
+</section>
+
+
+
 
 <footer class="controlbar">
   <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>

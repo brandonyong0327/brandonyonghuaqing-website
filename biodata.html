@@ -40,50 +40,9 @@
   <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
 </header>
 
-<aside class="hud-panel hud-left">
-  <div class="panel-head">OPERATOR FILE <b>02</b></div>
-  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>CLEARANCE</span><b class="cyan">LEVEL 02</b></div>
-  <div class="panel-row"><span>ENROLLED</span><b>2024</b></div>
-  <div class="panel-row"><span>PROGRAM</span><b>CS / BACHELOR</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">SKILL LOAD</div>
-  <div class="ticks">
-    <i style="height:44%; animation-delay:0s"></i>
-    <i style="height:72%; animation-delay:.3s"></i>
-    <i style="height:58%; animation-delay:.6s"></i>
-    <i style="height:88%; animation-delay:.9s"></i>
-    <i style="height:50%; animation-delay:1.2s"></i>
-    <i style="height:66%; animation-delay:1.5s"></i>
-    <i style="height:40%; animation-delay:1.8s"></i>
-    <i style="height:80%; animation-delay:2.1s"></i>
-    <i style="height:54%; animation-delay:2.4s"></i>
-    <i style="height:62%; animation-delay:2.7s"></i>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-row"><span>STATUS</span><b>ACTIVE</b></div>
-  <div class="panel-row"><span>RECORD</span><b class="purple">SYNCED</b></div>
-  <div class="meter"><i></i></div>
-</aside>
 
-<aside class="hud-panel hud-right">
-  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
-  <div class="radar">
-    <span class="radar-cross"></span>
-    <span class="radar-sweep"></span>
-    <span class="radar-blip" style="--a:48deg; --r:30%; --d:.6s"></span>
-    <span class="radar-blip" style="--a:156deg; --r:50%; --d:2s"></span>
-    <span class="radar-blip" style="--a:248deg; --r:36%; --d:3.2s"></span>
-  </div>
-  <div class="panel-row"><span>TRACKING</span><b class="cyan">3 OBJECTS</b></div>
-  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">MODULE MAP</div>
-  <div class="panel-row"><span>PAGES</span><b>05</b></div>
-  <div class="panel-row"><span>FORMS</span><b>01</b></div>
-  <div class="panel-row"><span>TABLES</span><b>01</b></div>
-  <div class="meter"><i style="animation-delay:1.6s"></i></div>
-</aside>
+
+
 
 <main class="shell">
 
@@ -229,6 +188,51 @@
   </section>
 
 </main>
+<section class="hud-tray" aria-hidden="true">
+<aside class="hud-panel hud-left">
+  <div class="panel-head">OPERATOR FILE <b>02</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>CLEARANCE</span><b class="cyan">LEVEL 02</b></div>
+  <div class="panel-row"><span>ENROLLED</span><b>2024</b></div>
+  <div class="panel-row"><span>PROGRAM</span><b>CS / BACHELOR</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">SKILL LOAD</div>
+  <div class="ticks">
+    <i style="height:44%; animation-delay:0s"></i>
+    <i style="height:72%; animation-delay:.3s"></i>
+    <i style="height:58%; animation-delay:.6s"></i>
+    <i style="height:88%; animation-delay:.9s"></i>
+    <i style="height:50%; animation-delay:1.2s"></i>
+    <i style="height:66%; animation-delay:1.5s"></i>
+    <i style="height:40%; animation-delay:1.8s"></i>
+    <i style="height:80%; animation-delay:2.1s"></i>
+    <i style="height:54%; animation-delay:2.4s"></i>
+    <i style="height:62%; animation-delay:2.7s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>STATUS</span><b>ACTIVE</b></div>
+  <div class="panel-row"><span>RECORD</span><b class="purple">SYNCED</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:48deg; --r:30%; --d:.6s"></span>
+    <span class="radar-blip" style="--a:156deg; --r:50%; --d:2s"></span>
+    <span class="radar-blip" style="--a:248deg; --r:36%; --d:3.2s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">3 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">MODULE MAP</div>
+  <div class="panel-row"><span>PAGES</span><b>05</b></div>
+  <div class="panel-row"><span>FORMS</span><b>01</b></div>
+  <div class="panel-row"><span>TABLES</span><b>01</b></div>
+  <div class="meter"><i style="animation-delay:1.6s"></i></div>
+</aside>
 
 <aside class="sys-status">
   <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
@@ -238,6 +242,10 @@
   <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
   <div class="ss-bar"><i id="sysBar"></i></div>
 </aside>
+</section>
+
+
+
 
 <footer class="controlbar">
   <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>

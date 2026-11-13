@@ -40,46 +40,9 @@
   <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
 </header>
 
-<aside class="hud-panel hud-left">
-  <div class="panel-head">MEDIA CHANNEL <b>04</b></div>
-  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>STREAM</span><b class="cyan">LIVE</b></div>
-  <div class="panel-row"><span>FORMAT</span><b>16:9</b></div>
-  <div class="panel-row"><span>SOURCE</span><b>YOUTUBE</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">SIGNAL QUALITY</div>
-  <div class="ticks">
-    <i style="height:62%; animation-delay:0s"></i>
-    <i style="height:84%; animation-delay:.3s"></i>
-    <i style="height:70%; animation-delay:.6s"></i>
-    <i style="height:92%; animation-delay:.9s"></i>
-    <i style="height:58%; animation-delay:1.2s"></i>
-    <i style="height:76%; animation-delay:1.5s"></i>
-    <i style="height:66%; animation-delay:1.8s"></i>
-    <i style="height:88%; animation-delay:2.1s"></i>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-row"><span>FPS</span><b class="purple">60</b></div>
-  <div class="panel-row"><span>VOLUME</span><b>NATIVE</b></div>
-  <div class="meter"><i></i></div>
-</aside>
 
-<aside class="hud-panel hud-right">
-  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
-  <div class="radar">
-    <span class="radar-cross"></span>
-    <span class="radar-sweep"></span>
-    <span class="radar-blip" style="--a:66deg; --r:38%; --d:.5s"></span>
-    <span class="radar-blip" style="--a:198deg; --r:54%; --d:2.2s"></span>
-  </div>
-  <div class="panel-row"><span>TRACKING</span><b class="cyan">2 OBJECTS</b></div>
-  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">CHANNEL DATA</div>
-  <div class="panel-row"><span>DURATION</span><b>02:00</b></div>
-  <div class="panel-row"><span>LANG</span><b>EN</b></div>
-  <div class="meter"><i style="animation-delay:1s"></i></div>
-</aside>
+
+
 
 <main class="shell">
 
@@ -152,6 +115,47 @@
   </section>
 
 </main>
+<section class="hud-tray" aria-hidden="true">
+<aside class="hud-panel hud-left">
+  <div class="panel-head">MEDIA CHANNEL <b>04</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>STREAM</span><b class="cyan">LIVE</b></div>
+  <div class="panel-row"><span>FORMAT</span><b>16:9</b></div>
+  <div class="panel-row"><span>SOURCE</span><b>YOUTUBE</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">SIGNAL QUALITY</div>
+  <div class="ticks">
+    <i style="height:62%; animation-delay:0s"></i>
+    <i style="height:84%; animation-delay:.3s"></i>
+    <i style="height:70%; animation-delay:.6s"></i>
+    <i style="height:92%; animation-delay:.9s"></i>
+    <i style="height:58%; animation-delay:1.2s"></i>
+    <i style="height:76%; animation-delay:1.5s"></i>
+    <i style="height:66%; animation-delay:1.8s"></i>
+    <i style="height:88%; animation-delay:2.1s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>FPS</span><b class="purple">60</b></div>
+  <div class="panel-row"><span>VOLUME</span><b>NATIVE</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:66deg; --r:38%; --d:.5s"></span>
+    <span class="radar-blip" style="--a:198deg; --r:54%; --d:2.2s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">2 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">CHANNEL DATA</div>
+  <div class="panel-row"><span>DURATION</span><b>02:00</b></div>
+  <div class="panel-row"><span>LANG</span><b>EN</b></div>
+  <div class="meter"><i style="animation-delay:1s"></i></div>
+</aside>
 
 <aside class="sys-status">
   <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
@@ -161,6 +165,10 @@
   <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
   <div class="ss-bar"><i id="sysBar"></i></div>
 </aside>
+</section>
+
+
+
 
 <footer class="controlbar">
   <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>

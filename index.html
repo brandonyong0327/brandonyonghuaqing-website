@@ -44,58 +44,8 @@
 </header>
 
 <!-- ================= LEFT HUD PANEL ================= -->
-<aside class="hud-panel hud-left">
-  <div class="panel-head">MISSION LOG <b>01</b></div>
-  <div class="panel-row"><span>NODE</span><b class="cyan">ORBIT-01</b></div>
-  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>STATUS</span><b>NOMINAL</b></div>
-  <div class="panel-row"><span>LATENCY</span><b id="hudLatency">12 ms</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">SIGNAL DENSITY</div>
-  <div class="ticks">
-    <i style="height:38%; animation-delay:0s"></i>
-    <i style="height:62%; animation-delay:.25s"></i>
-    <i style="height:48%; animation-delay:.5s"></i>
-    <i style="height:84%; animation-delay:.75s"></i>
-    <i style="height:56%; animation-delay:1s"></i>
-    <i style="height:70%; animation-delay:1.25s"></i>
-    <i style="height:42%; animation-delay:1.5s"></i>
-    <i style="height:90%; animation-delay:1.75s"></i>
-    <i style="height:52%; animation-delay:2s"></i>
-    <i style="height:66%; animation-delay:2.25s"></i>
-    <i style="height:36%; animation-delay:2.5s"></i>
-    <i style="height:78%; animation-delay:2.75s"></i>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-row"><span>DISK VEL</span><b class="purple">0.42 c</b></div>
-  <div class="panel-row"><span>MASS</span><b>6.5e9 M&#9737;</b></div>
-  <div class="panel-row"><span>HORIZON</span><b>1.9 Rs</b></div>
-  <div class="meter"><i></i></div>
-  <div class="panel-label">CORE INTEGRITY</div>
-</aside>
 
 <!-- ================= RIGHT HUD PANEL ================= -->
-<aside class="hud-panel hud-right">
-  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
-  <div class="radar">
-    <span class="radar-cross"></span>
-    <span class="radar-sweep"></span>
-    <span class="radar-blip" style="--a:32deg;  --r:34%; --d:.4s"></span>
-    <span class="radar-blip" style="--a:128deg; --r:56%; --d:1.6s"></span>
-    <span class="radar-blip" style="--a:214deg; --r:28%; --d:2.8s"></span>
-    <span class="radar-blip" style="--a:296deg; --r:46%; --d:3.9s"></span>
-  </div>
-  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
-  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
-  <div class="panel-row"><span>ROTATION</span><b id="hudRot">0.0&deg;</b></div>
-  <div class="panel-row"><span>ZOOM</span><b id="hudZoom">1.00&times;</b></div>
-  <div class="panel-divider"></div>
-  <div class="panel-label">DEBRIS FIELD</div>
-  <div class="panel-row"><span>ROCK</span><b>2.4k</b></div>
-  <div class="panel-row"><span>ICE</span><b>1.1k</b></div>
-  <div class="panel-row"><span>DUST</span><b>18k</b></div>
-  <div class="meter"><i style="animation-delay:1.2s"></i></div>
-</aside>
 
 <!-- ================= CONTENT ================= -->
 <main class="shell">
@@ -244,8 +194,59 @@
   </section>
 
 </main>
+<section class="hud-tray" aria-hidden="true">
+<aside class="hud-panel hud-left">
+  <div class="panel-head">MISSION LOG <b>01</b></div>
+  <div class="panel-row"><span>NODE</span><b class="cyan">ORBIT-01</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>STATUS</span><b>NOMINAL</b></div>
+  <div class="panel-row"><span>LATENCY</span><b id="hudLatency">12 ms</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">SIGNAL DENSITY</div>
+  <div class="ticks">
+    <i style="height:38%; animation-delay:0s"></i>
+    <i style="height:62%; animation-delay:.25s"></i>
+    <i style="height:48%; animation-delay:.5s"></i>
+    <i style="height:84%; animation-delay:.75s"></i>
+    <i style="height:56%; animation-delay:1s"></i>
+    <i style="height:70%; animation-delay:1.25s"></i>
+    <i style="height:42%; animation-delay:1.5s"></i>
+    <i style="height:90%; animation-delay:1.75s"></i>
+    <i style="height:52%; animation-delay:2s"></i>
+    <i style="height:66%; animation-delay:2.25s"></i>
+    <i style="height:36%; animation-delay:2.5s"></i>
+    <i style="height:78%; animation-delay:2.75s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>DISK VEL</span><b class="purple">0.42 c</b></div>
+  <div class="panel-row"><span>MASS</span><b>6.5e9 M&#9737;</b></div>
+  <div class="panel-row"><span>HORIZON</span><b>1.9 Rs</b></div>
+  <div class="meter"><i></i></div>
+  <div class="panel-label">CORE INTEGRITY</div>
+</aside>
 
-<!-- ================= SYSTEM STATUS ================= -->
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:32deg;  --r:34%; --d:.4s"></span>
+    <span class="radar-blip" style="--a:128deg; --r:56%; --d:1.6s"></span>
+    <span class="radar-blip" style="--a:214deg; --r:28%; --d:2.8s"></span>
+    <span class="radar-blip" style="--a:296deg; --r:46%; --d:3.9s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-row"><span>ROTATION</span><b id="hudRot">0.0&deg;</b></div>
+  <div class="panel-row"><span>ZOOM</span><b id="hudZoom">1.00&times;</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">DEBRIS FIELD</div>
+  <div class="panel-row"><span>ROCK</span><b>2.4k</b></div>
+  <div class="panel-row"><span>ICE</span><b>1.1k</b></div>
+  <div class="panel-row"><span>DUST</span><b>18k</b></div>
+  <div class="meter"><i style="animation-delay:1.2s"></i></div>
+</aside>
+
 <aside class="sys-status">
   <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
   <div class="ss-time" id="sysClock">00:00:00</div>
@@ -254,6 +255,9 @@
   <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
   <div class="ss-bar"><i id="sysBar"></i></div>
 </aside>
+</section>
+
+<!-- ================= SYSTEM STATUS ================= -->
 
 <!-- ================= CONTROL BAR ================= -->
 <footer class="controlbar">
