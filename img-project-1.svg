@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050813"/>
+      <stop offset="55%" stop-color="#081227"/>
+      <stop offset="100%" stop-color="#0a0a1e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="rgb(53,231,255)" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="rgb(53,231,255)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg1)"/>
+  <rect width="400" height="250" fill="url(#glow1)"/>
+
+  <g stroke="rgb(53,231,255)" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 40 H400 M0 80 H400 M0 120 H400 M0 160 H400 M0 200 H400"/>
+    <path d="M40 0 V250 M80 0 V250 M120 0 V250 M160 0 V250 M200 0 V250 M240 0 V250 M280 0 V250 M320 0 V250 M360 0 V250"/>
+  </g>
+
+  <g fill="none" stroke="rgb(53,231,255)" stroke-opacity="0.55" stroke-width="1.5">
+    <rect x="86" y="66" width="228" height="30" rx="3"/>
+    <rect x="86" y="104" width="228" height="26" rx="3"/>
+    <rect x="86" y="138" width="228" height="26" rx="3"/>
+    <rect x="86" y="172" width="228" height="26" rx="3"/>
+  </g>
+
+  <g fill="rgb(53,231,255)" fill-opacity="0.45">
+    <rect x="96" y="76" width="46" height="10" rx="2"/>
+    <rect x="160" y="76" width="60" height="10" rx="2"/>
+    <rect x="236" y="76" width="34" height="10" rx="2"/>
+    <rect x="96" y="112" width="52" height="10" rx="2"/>
+    <rect x="164" y="112" width="44" height="10" rx="2"/>
+    <rect x="96" y="146" width="70" height="10" rx="2"/>
+    <rect x="182" y="146" width="40" height="10" rx="2"/>
+    <rect x="96" y="180" width="38" height="10" rx="2"/>
+    <rect x="150" y="180" width="66" height="10" rx="2"/>
+  </g>
+
+  <g fill="rgb(161,99,255)" fill-opacity="0.75">
+    <rect x="86" y="66" width="228" height="2"/>
+  </g>
+
+  <text x="20" y="30" font-family="monospace" font-size="9" letter-spacing="2" fill="rgb(53,231,255)" fill-opacity="0.6">SYS / STUDENT MANAGEMENT</text>
+  <text x="20" y="234" font-family="monospace" font-size="8" letter-spacing="1.6" fill="rgb(107,131,166)">RECORD ROWS 214 / MYSQL LINK OK</text>
+</svg>

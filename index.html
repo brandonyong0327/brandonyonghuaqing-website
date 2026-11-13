@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>HOME // DEEP SPACE PORTFOLIO</title>
+<meta name="description" content="Personal portfolio interface of a Computer Science student, presented as a deep space black hole HUD console.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-module="HOME">
+
+<!-- background layers -->
+<canvas id="space-canvas"></canvas>
+<div class="nebula-wash"></div>
+<div class="vignette"></div>
+<div class="scan-line"></div>
+
+<!-- boot overlay -->
+<div class="boot-overlay" id="bootOverlay">
+  <div>
+    <div class="boot-text">INITIALIZING DEEP SPACE INTERFACE</div>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"></span>
+    <span class="brand-text">ORBIT<span class="brand-sub">PORTFOLIO / v4.0</span></span>
+  </a>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="hud-btn is-active">HOME</a>
+    <a href="biodata.html" class="hud-btn">BIODATA</a>
+    <a href="portfolio.html" class="hud-btn">PORTFOLIO</a>
+    <a href="video.html" class="hud-btn">VIDEO</a>
+    <a href="comments.html" class="hud-btn">COMMENTS</a>
+  </nav>
+
+  <div class="topbar-meta"><span class="led"></span> SYS ONLINE</div>
+  <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+</header>
+
+<!-- ================= LEFT HUD PANEL ================= -->
+<aside class="hud-panel hud-left">
+  <div class="panel-head">MISSION LOG <b>01</b></div>
+  <div class="panel-row"><span>NODE</span><b class="cyan">ORBIT-01</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>STATUS</span><b>NOMINAL</b></div>
+  <div class="panel-row"><span>LATENCY</span><b id="hudLatency">12 ms</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">SIGNAL DENSITY</div>
+  <div class="ticks">
+    <i style="height:38%; animation-delay:0s"></i>
+    <i style="height:62%; animation-delay:.25s"></i>
+    <i style="height:48%; animation-delay:.5s"></i>
+    <i style="height:84%; animation-delay:.75s"></i>
+    <i style="height:56%; animation-delay:1s"></i>
+    <i style="height:70%; animation-delay:1.25s"></i>
+    <i style="height:42%; animation-delay:1.5s"></i>
+    <i style="height:90%; animation-delay:1.75s"></i>
+    <i style="height:52%; animation-delay:2s"></i>
+    <i style="height:66%; animation-delay:2.25s"></i>
+    <i style="height:36%; animation-delay:2.5s"></i>
+    <i style="height:78%; animation-delay:2.75s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>DISK VEL</span><b class="purple">0.42 c</b></div>
+  <div class="panel-row"><span>MASS</span><b>6.5e9 M&#9737;</b></div>
+  <div class="panel-row"><span>HORIZON</span><b>1.9 Rs</b></div>
+  <div class="meter"><i></i></div>
+  <div class="panel-label">CORE INTEGRITY</div>
+</aside>
+
+<!-- ================= RIGHT HUD PANEL ================= -->
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:32deg;  --r:34%; --d:.4s"></span>
+    <span class="radar-blip" style="--a:128deg; --r:56%; --d:1.6s"></span>
+    <span class="radar-blip" style="--a:214deg; --r:28%; --d:2.8s"></span>
+    <span class="radar-blip" style="--a:296deg; --r:46%; --d:3.9s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-row"><span>ROTATION</span><b id="hudRot">0.0&deg;</b></div>
+  <div class="panel-row"><span>ZOOM</span><b id="hudZoom">1.00&times;</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">DEBRIS FIELD</div>
+  <div class="panel-row"><span>ROCK</span><b>2.4k</b></div>
+  <div class="panel-row"><span>ICE</span><b>1.1k</b></div>
+  <div class="panel-row"><span>DUST</span><b>18k</b></div>
+  <div class="meter"><i style="animation-delay:1.2s"></i></div>
+</aside>
+
+<!-- ================= CONTENT ================= -->
+<main class="shell">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">MODULE 01 &nbsp;/&nbsp; CORE INTERFACE<span class="eyebrow-date"><b class="js-date">--.--.----</b><i> / ---</i></span></div>
+
+        <h1 class="hero-title">Hi, I'm<br>[Your Name]<span class="accent-dot">.</span></h1>
+
+        <div class="hero-sub">
+          COMPUTER SCIENCE STUDENT &nbsp;/&nbsp; WEB DEVELOPER &nbsp;/&nbsp; MULTIMEDIA
+        </div>
+
+        <p class="hero-lead">
+          I build interfaces where structure meets atmosphere — clean markup,
+          responsive layout, and motion that supports reading instead of fighting it.
+          This is my personal space, rendered as a small piece of deep space.
+        </p>
+
+        <div class="hero-actions">
+          <a href="portfolio.html" class="hud-btn hud-btn--primary">VIEW PORTFOLIO</a>
+          <a href="comments.html" class="hud-btn hud-btn--ghost">LEAVE A COMMENT</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="bh-stage" tabindex="0" role="group"
+             aria-label="Interactive black hole: drag to spin, click or Ctrl+scroll to zoom, pinch to zoom">
+          <canvas id="bh-canvas"></canvas>
+          <span class="bh-mark bh-mark--1">EVENT HORIZON / 1.9 Rs</span>
+          <span class="bh-mark bh-mark--2">ACCRETION DISK / 0.42 c</span>
+          <div class="bh-hint">
+            <span class="bh-hint__desk">DRAG TO SPIN &nbsp;·&nbsp; CLICK TO ZOOM &nbsp;·&nbsp; CTRL + SCROLL</span>
+            <span class="bh-hint__touch">SWIPE TO SPIN &nbsp;·&nbsp; PINCH TO ZOOM &nbsp;·&nbsp; TAP TO PULSE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-val glitch-num">04</div>
+        <div class="stat-key">PROJECT MODULES</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val glitch-num">06+</div>
+        <div class="stat-key">CORE SKILLS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val glitch-num">05</div>
+        <div class="stat-key">SITE PAGES</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val glitch-num">2026</div>
+        <div class="stat-key">CURRENT ORBIT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 01 -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// CORE CAPABILITIES</h2>
+      <div class="section-index">SEC <b>01</b></div>
+    </div>
+
+    <div class="card-grid">
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> MOD_01</span>
+        <h3 class="card-title">Front-End Development</h3>
+        <p class="card-text">
+          Semantic HTML, layered CSS, and vanilla JavaScript. Responsive layouts built
+          from a mobile-first grid rather than patched afterwards.
+        </p>
+        <div class="chip-row">
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">JAVASCRIPT</span>
+        </div>
+      </article>
+
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> MOD_02</span>
+        <h3 class="card-title">Multimedia &amp; Motion</h3>
+        <p class="card-text">
+          Image composition, video embedding, and CSS-driven animation. Motion used as
+          atmosphere, always behind the content and never in front of it.
+        </p>
+        <div class="chip-row">
+          <span class="chip">ANIMATION</span>
+          <span class="chip">VIDEO</span>
+          <span class="chip">GRAPHICS</span>
+        </div>
+      </article>
+
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> MOD_03</span>
+        <h3 class="card-title">Interface Systems</h3>
+        <p class="card-text">
+          Design tokens, component states, and interaction rules — every control has a
+          hover, a press, and a quiet return, so the interface always answers back.
+        </p>
+        <div class="chip-row">
+          <span class="chip">UI/UX</span>
+          <span class="chip">DESIGN TOKENS</span>
+          <span class="chip">A11Y</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECTION 02 -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// MODULE DIRECTORY</h2>
+      <div class="section-index">SEC <b>02</b></div>
+    </div>
+
+    <div class="card-grid">
+      <a href="biodata.html" class="hud-card" style="text-decoration:none">
+        <span class="card-tag"><span class="led"></span> PG_02</span>
+        <h3 class="card-title">My Biodata</h3>
+        <p class="card-text">Personal record, skills matrix, and the semester timetable.</p>
+      </a>
+
+      <a href="portfolio.html" class="hud-card" style="text-decoration:none">
+        <span class="card-tag"><span class="led"></span> PG_03</span>
+        <h3 class="card-title">My Portfolio</h3>
+        <p class="card-text">Project archive with build state, tags, and detail preview.</p>
+      </a>
+
+      <a href="video.html" class="hud-card" style="text-decoration:none">
+        <span class="card-tag"><span class="led"></span> PG_04</span>
+        <h3 class="card-title">My Video</h3>
+        <p class="card-text">A short transmission recorded in a wrapped console shell.</p>
+      </a>
+
+      <a href="comments.html" class="hud-card" style="text-decoration:none">
+        <span class="card-tag"><span class="led"></span> PG_05</span>
+        <h3 class="card-title">Your Comments</h3>
+        <p class="card-text">Feedback terminal — leave a signal for the operator.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= SYSTEM STATUS ================= -->
+<aside class="sys-status">
+  <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
+  <div class="ss-time" id="sysClock">00:00:00</div>
+  <div class="ss-row"><span>DATE</span><b id="sysDate">--.--.----</b></div>
+  <div class="ss-row"><span>MODULE</span><span id="sysModule">HOME</span></div>
+  <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
+  <div class="ss-bar"><i id="sysBar"></i></div>
+</aside>
+
+<!-- ================= CONTROL BAR ================= -->
+<footer class="controlbar">
+  <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">MODULE <b>HOME</b></div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">SECTOR 01 &nbsp;/&nbsp; 04 MODULES</div>
+  <div class="cb-meter"><i></i></div>
+  <div class="cb-item cb-push">&copy; 2026 [Your Name] &nbsp;/&nbsp; IM22503</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

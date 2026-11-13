@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>PORTFOLIO // DEEP SPACE PORTFOLIO</title>
+<meta name="description" content="Project archive: student management system, e-commerce website, mobile task app and AR storybook.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-module="PORTFOLIO">
+
+<canvas id="space-canvas"></canvas>
+<div class="nebula-wash"></div>
+<div class="vignette"></div>
+<div class="scan-line"></div>
+
+<div class="boot-overlay" id="bootOverlay">
+  <div>
+    <div class="boot-text">RETRIEVING PROJECT ARCHIVE</div>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"></span>
+    <span class="brand-text">ORBIT<span class="brand-sub">PORTFOLIO / v4.0</span></span>
+  </a>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="hud-btn">HOME</a>
+    <a href="biodata.html" class="hud-btn">BIODATA</a>
+    <a href="portfolio.html" class="hud-btn is-active">PORTFOLIO</a>
+    <a href="video.html" class="hud-btn">VIDEO</a>
+    <a href="comments.html" class="hud-btn">COMMENTS</a>
+  </nav>
+
+  <div class="topbar-meta"><span class="led"></span> SYS ONLINE</div>
+  <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+</header>
+
+<aside class="hud-panel hud-left">
+  <div class="panel-head">ARCHIVE INDEX <b>03</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>OBJECTS</span><b class="cyan">04</b></div>
+  <div class="panel-row"><span>DEPLOYED</span><b>04</b></div>
+  <div class="panel-row"><span>IN BUILD</span><b>00</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">BUILD LOAD</div>
+  <div class="ticks">
+    <i style="height:52%; animation-delay:0s"></i>
+    <i style="height:78%; animation-delay:.3s"></i>
+    <i style="height:46%; animation-delay:.6s"></i>
+    <i style="height:88%; animation-delay:.9s"></i>
+    <i style="height:60%; animation-delay:1.2s"></i>
+    <i style="height:72%; animation-delay:1.5s"></i>
+    <i style="height:44%; animation-delay:1.8s"></i>
+    <i style="height:84%; animation-delay:2.1s"></i>
+    <i style="height:58%; animation-delay:2.4s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>STACK</span><b class="purple">HTML/CSS/JS</b></div>
+  <div class="panel-row"><span>MEDIA</span><b>04 IMG</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:24deg; --r:40%; --d:.4s"></span>
+    <span class="radar-blip" style="--a:112deg; --r:62%; --d:1.4s"></span>
+    <span class="radar-blip" style="--a:206deg; --r:32%; --d:2.6s"></span>
+    <span class="radar-blip" style="--a:288deg; --r:50%; --d:3.6s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">4 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">OBJECT TYPES</div>
+  <div class="panel-row"><span>WEB</span><b>02</b></div>
+  <div class="panel-row"><span>DESKTOP</span><b>01</b></div>
+  <div class="panel-row"><span>MOBILE</span><b>01</b></div>
+  <div class="meter"><i style="animation-delay:2s"></i></div>
+</aside>
+
+<main class="shell">
+
+  <section class="hero page-head">
+    <div class="eyebrow">MODULE 03 &nbsp;/&nbsp; PROJECT ARCHIVE<span class="eyebrow-date"><b class="js-date">--.--.----</b><i> / ---</i></span></div>
+    <h1 class="page-title">MY_PORTFOLIO</h1>
+    <div class="page-sub">04 OBJECTS &nbsp;·&nbsp; ALL DEPLOYED &nbsp;·&nbsp; HOVER FOR DETAIL</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// PROJECT LOG</h2>
+      <div class="section-index">SEC <b>01</b></div>
+    </div>
+
+    <div class="card-grid">
+
+      <!-- PROJECT 01 -->
+      <article class="hud-card project-card">
+        <div class="project-media">
+          <img src="img-project-1.svg" alt="Student Management System interface preview">
+          <span class="project-id">PRJ_01</span>
+          <span class="project-status"><span class="led"></span>COMPLETE</span>
+        </div>
+        <div class="project-body">
+          <h3 class="card-title">Student Management System</h3>
+          <p class="card-text">Java desktop application for campus records with a MySQL backend.</p>
+          <div class="chip-row">
+            <span class="chip">JAVA</span>
+            <span class="chip">MYSQL</span>
+          </div>
+        </div>
+        <div class="project-detail">
+          <p>
+            Full CRUD record system: add, search, edit and archive student profiles,
+            with role-based access for staff and an exportable grade summary.
+          </p>
+          <div class="detail-tags">
+            <span>CRUD</span><span>JDBC</span><span>ROLE ACCESS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 02 -->
+      <article class="hud-card project-card">
+        <div class="project-media">
+          <img src="img-project-2.svg" alt="E-Commerce Website interface preview">
+          <span class="project-id">PRJ_02</span>
+          <span class="project-status"><span class="led"></span>COMPLETE</span>
+        </div>
+        <div class="project-body">
+          <h3 class="card-title">E-Commerce Website</h3>
+          <p class="card-text">Responsive storefront with product grid, cart and checkout flow.</p>
+          <div class="chip-row">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JAVASCRIPT</span>
+          </div>
+        </div>
+        <div class="project-detail">
+          <p>
+            Mobile-first storefront built with a flexible product grid, a persistent
+            cart state, and a validated checkout form with inline field feedback.
+          </p>
+          <div class="detail-tags">
+            <span>RESPONSIVE</span><span>CART</span><span>FORM VALIDATION</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 03 -->
+      <article class="hud-card project-card">
+        <div class="project-media">
+          <img src="img-project-3.svg" alt="Mobile To-Do App interface preview">
+          <span class="project-id">PRJ_03</span>
+          <span class="project-status"><span class="led"></span>COMPLETE</span>
+        </div>
+        <div class="project-body">
+          <h3 class="card-title">Mobile Task Manager</h3>
+          <p class="card-text">Android app for daily tasks with cloud sync and reminders.</p>
+          <div class="chip-row">
+            <span class="chip">KOTLIN</span>
+            <span class="chip">FIREBASE</span>
+          </div>
+        </div>
+        <div class="project-detail">
+          <p>
+            Task app with priority sorting, completion states and offline-first storage
+            that reconciles with the cloud once a connection returns.
+          </p>
+          <div class="detail-tags">
+            <span>ANDROID</span><span>OFFLINE SYNC</span><span>NOTIFY</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 04 -->
+      <article class="hud-card project-card">
+        <div class="project-media">
+          <img src="img-project-4.svg" alt="AR Storybook marker preview">
+          <span class="project-id">PRJ_04</span>
+          <span class="project-status"><span class="led"></span>COMPLETE</span>
+        </div>
+        <div class="project-body">
+          <h3 class="card-title">AR Children's Storybook</h3>
+          <p class="card-text">Web-based augmented reality book that plays scenes on a marker.</p>
+          <div class="chip-row">
+            <span class="chip">MINDAR</span>
+            <span class="chip">JAVASCRIPT</span>
+          </div>
+        </div>
+        <div class="project-detail">
+          <p>
+            Marker-based AR storybook where each printed page triggers an animated
+            3D scene, built for children with large controls and minimal text.
+          </p>
+          <div class="detail-tags">
+            <span>AR</span><span>3D SCENE</span><span>EDU</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// NEXT OBJECTIVES</h2>
+      <div class="section-index">SEC <b>02</b></div>
+    </div>
+
+    <div class="card-grid">
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> OBJ_A</span>
+        <h3 class="card-title">Deeper Motion System</h3>
+        <p class="card-text">Replace static transitions with a shared easing language across every module.</p>
+      </article>
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> OBJ_B</span>
+        <h3 class="card-title">Accessibility Pass</h3>
+        <p class="card-text">Audit contrast, focus order and keyboard routes on all five pages.</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<aside class="sys-status">
+  <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
+  <div class="ss-time" id="sysClock">00:00:00</div>
+  <div class="ss-row"><span>DATE</span><b id="sysDate">--.--.----</b></div>
+  <div class="ss-row"><span>MODULE</span><span id="sysModule">PORTFOLIO</span></div>
+  <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
+  <div class="ss-bar"><i id="sysBar"></i></div>
+</aside>
+
+<footer class="controlbar">
+  <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">MODULE <b>PORTFOLIO</b></div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">ARCHIVE 04 / 04 DEPLOYED</div>
+  <div class="cb-meter"><i></i></div>
+  <div class="cb-item cb-push">&copy; 2026 [Your Name] &nbsp;/&nbsp; IM22503</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

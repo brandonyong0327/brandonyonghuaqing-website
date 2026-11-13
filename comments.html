@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>COMMENTS // DEEP SPACE PORTFOLIO</title>
+<meta name="description" content="Feedback terminal: leave a comment for the portfolio operator.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-module="COMMENTS">
+
+<canvas id="space-canvas"></canvas>
+<div class="nebula-wash"></div>
+<div class="vignette"></div>
+<div class="scan-line"></div>
+
+<div class="boot-overlay" id="bootOverlay">
+  <div>
+    <div class="boot-text">OPENING FEEDBACK TERMINAL</div>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"></span>
+    <span class="brand-text">ORBIT<span class="brand-sub">PORTFOLIO / v4.0</span></span>
+  </a>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="hud-btn">HOME</a>
+    <a href="biodata.html" class="hud-btn">BIODATA</a>
+    <a href="portfolio.html" class="hud-btn">PORTFOLIO</a>
+    <a href="video.html" class="hud-btn">VIDEO</a>
+    <a href="comments.html" class="hud-btn is-active">COMMENTS</a>
+  </nav>
+
+  <div class="topbar-meta"><span class="led"></span> SYS ONLINE</div>
+  <button class="hud-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+</header>
+
+<aside class="hud-panel hud-left">
+  <div class="panel-head">FEEDBACK LINK <b>05</b></div>
+  <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
+  <div class="panel-row"><span>TERMINAL</span><b class="cyan">READY</b></div>
+  <div class="panel-row"><span>CHANNEL</span><b>UPLINK 05</b></div>
+  <div class="panel-row"><span>ENCRYPT</span><b class="purple">ON</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">INPUT LOAD</div>
+  <div class="ticks">
+    <i style="height:40%; animation-delay:0s"></i>
+    <i style="height:64%; animation-delay:.3s"></i>
+    <i style="height:52%; animation-delay:.6s"></i>
+    <i style="height:80%; animation-delay:.9s"></i>
+    <i style="height:46%; animation-delay:1.2s"></i>
+    <i style="height:70%; animation-delay:1.5s"></i>
+    <i style="height:56%; animation-delay:1.8s"></i>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-row"><span>FIELDS</span><b>04</b></div>
+  <div class="panel-row"><span>VALIDATE</span><b>JS</b></div>
+  <div class="meter"><i></i></div>
+</aside>
+
+<aside class="hud-panel hud-right">
+  <div class="panel-head">ORBITAL SCAN <b>RADAR</b></div>
+  <div class="radar">
+    <span class="radar-cross"></span>
+    <span class="radar-sweep"></span>
+    <span class="radar-blip" style="--a:40deg; --r:52%; --d:.7s"></span>
+    <span class="radar-blip" style="--a:222deg; --r:34%; --d:2.4s"></span>
+  </div>
+  <div class="panel-row"><span>TRACKING</span><b class="cyan">2 OBJECTS</b></div>
+  <div class="panel-row"><span>SWEEP</span><b>360&deg; / 9s</b></div>
+  <div class="panel-divider"></div>
+  <div class="panel-label">CONTACT ROUTES</div>
+  <div class="panel-row"><span>EMAIL</span><b>01</b></div>
+  <div class="panel-row"><span>SOCIAL</span><b>03</b></div>
+  <div class="meter"><i style="animation-delay:1.8s"></i></div>
+</aside>
+
+<main class="shell">
+
+  <section class="hero page-head">
+    <div class="eyebrow">MODULE 05 &nbsp;/&nbsp; FEEDBACK TERMINAL<span class="eyebrow-date"><b class="js-date">--.--.----</b><i> / ---</i></span></div>
+    <h1 class="page-title">YOUR_COMMENTS</h1>
+    <div class="page-sub">SEND A SIGNAL &nbsp;·&nbsp; ALL FIELDS VALIDATED BEFORE TRANSMIT</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// TRANSMISSION COMPOSER</h2>
+      <div class="section-index">SEC <b>01</b></div>
+    </div>
+
+    <div class="hud-card form-shell">
+      <form id="commentForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">CALLSIGN / NAME <i>*</i></label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">CONTACT FREQUENCY / EMAIL <i>*</i></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rating">SYSTEM RATING</label>
+          <select id="rating" name="rating">
+            <option value="5">5 &mdash; EXCELLENT</option>
+            <option value="4">4 &mdash; GOOD</option>
+            <option value="3">3 &mdash; AVERAGE</option>
+            <option value="2">2 &mdash; BELOW AVERAGE</option>
+            <option value="1">1 &mdash; POOR</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">MESSAGE BODY <i>*</i></label>
+          <textarea id="message" name="message" rows="6" placeholder="Type your signal here..."></textarea>
+        </div>
+
+        <button type="submit" class="hud-btn hud-btn--primary">TRANSMIT SIGNAL</button>
+
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        <div class="form-note">// UPLINK SECURED &nbsp;·&nbsp; THIS DEMO VALIDATES LOCALLY, NO DATA IS STORED</div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">// DIRECT CHANNELS</h2>
+      <div class="section-index">SEC <b>02</b></div>
+    </div>
+
+    <div class="card-grid">
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> LINK_A</span>
+        <h3 class="card-title">Reach me directly</h3>
+        <p class="card-text">Email is the fastest route. Replace the address below with your own.</p>
+        <div class="social-row">
+          <a class="social-link" href="mailto:your.email@student.mmu.edu.my">EMAIL</a>
+          <a class="social-link" href="https://github.com/" target="_blank" rel="noopener">GITHUB</a>
+          <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a>
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a>
+        </div>
+      </article>
+
+      <article class="hud-card">
+        <span class="card-tag"><span class="led"></span> LINK_B</span>
+        <h3 class="card-title">Before you transmit</h3>
+        <p class="card-text">
+          Tell me which module you looked at and what felt unclear. Concrete notes on
+          readability, motion or navigation are the most useful kind of feedback.
+        </p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<aside class="sys-status">
+  <div class="ss-row"><span><span class="led"></span> STATUS</span><b>ONLINE</b></div>
+  <div class="ss-time" id="sysClock">00:00:00</div>
+  <div class="ss-row"><span>DATE</span><b id="sysDate">--.--.----</b></div>
+  <div class="ss-row"><span>MODULE</span><span id="sysModule">COMMENTS</span></div>
+  <div class="ss-row"><span>LINK</span><b>STABLE</b></div>
+  <div class="ss-bar"><i id="sysBar"></i></div>
+</aside>
+
+<footer class="controlbar">
+  <div class="cb-item"><span class="led"></span> SYSTEM NOMINAL</div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">MODULE <b>COMMENTS</b></div>
+  <div class="cb-sep"></div>
+  <div class="cb-item">TERMINAL READY / AWAITING INPUT</div>
+  <div class="cb-meter"><i></i></div>
+  <div class="cb-item cb-push">&copy; 2026 [Your Name] &nbsp;/&nbsp; IM22503</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
