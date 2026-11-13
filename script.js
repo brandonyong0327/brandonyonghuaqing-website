@@ -109,15 +109,15 @@
     if (!space) return;
 
     var w = space.w, h = space.h;
-    var starCount = w < 820 ? 90 : 190;
+    var starCount = w < 820 ? 105 : 240;
 
     stars = [];
     for (var i = 0; i < starCount; i++) {
       stars.push({
         x: rnd(i * 3.1) * w,
         y: rnd(i * 7.7) * h,
-        r: rnd(i * 11.3) * 1.15 + 0.25,
-        a: rnd(i * 13.9) * 0.55 + 0.12,
+        r: rnd(i * 11.3) * 1.2 + 0.35,
+        a: rnd(i * 13.9) * 0.50 + 0.35,
         p: rnd(i * 17.1) * Math.PI * 2,
         s: rnd(i * 19.3) * 0.9 + 0.25,
         warm: rnd(i * 23.7) > 0.82
@@ -206,20 +206,20 @@
     // --- stars ---
     for (var si = 0; si < stars.length; si++) {
       var st = stars[si];
-      var tw = 0.72 + Math.sin(t * 0.0009 * st.s + st.p) * 0.28;
+      var tw = 0.80 + Math.sin(t * 0.0009 * st.s + st.p) * 0.20;
       var alpha = st.a * tw;
       ctx.beginPath();
       ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
       ctx.fillStyle = st.warm
-        ? 'rgba(215, 190, 255, ' + alpha + ')'
-        : 'rgba(190, 235, 255, ' + alpha + ')';
+        ? 'rgba(232, 214, 255, ' + alpha + ')'
+        : 'rgba(214, 244, 255, ' + alpha + ')';
       ctx.fill();
 
-      if (!isMobile && st.r > 1.05) {
-        ctx.globalAlpha = alpha * 0.5;
+      if (!isMobile && st.r > 0.92) {
+        ctx.globalAlpha = alpha * 0.40;
         ctx.fillStyle = 'rgba(53, 231, 255, 0.5)';
         ctx.beginPath();
-        ctx.arc(st.x, st.y, st.r * 2.4, 0, Math.PI * 2);
+        ctx.arc(st.x, st.y, st.r * 2.6, 0, Math.PI * 2);
         ctx.fill();
         ctx.globalAlpha = 1;
       }
