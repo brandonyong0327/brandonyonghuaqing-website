@@ -144,7 +144,7 @@
         cx: w * (0.5 + (rnd(o * 61.7) - 0.5) * 0.5),
         cy: h * (0.32 + (rnd(o * 67.3) - 0.5) * 0.34),
         r: Math.min(w, h) * (0.18 + o * 0.1 + rnd(o * 71.9) * 0.06),
-        a: 0.03 + rnd(o * 73.1) * 0.05,
+        a: 0.11 + rnd(o * 73.1) * 0.09,
         rot: rnd(o * 79.7) * Math.PI
       });
     }
@@ -186,8 +186,8 @@
       ctx.save();
       ctx.translate(ob.cx + mx * 10, ob.cy + my * 10);
       ctx.rotate(ob.rot);
-      ctx.strokeStyle = 'rgba(122, 168, 255, ' + ob.a + ')';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(150, 194, 255, ' + ob.a + ')';
+      ctx.lineWidth = 1.3;
       ctx.beginPath();
       ctx.ellipse(0, 0, ob.r, ob.r * 0.42, 0, 0, Math.PI * 2);
       ctx.stroke();
@@ -197,8 +197,8 @@
       var px = Math.cos(ang) * ob.r;
       var py = Math.sin(ang) * ob.r * 0.42;
       ctx.beginPath();
-      ctx.arc(px, py, 1.6, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(53, 231, 255, 0.5)';
+      ctx.arc(px, py, 1.9, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(53, 231, 255, 0.62)';
       ctx.fill();
       ctx.restore();
     }
