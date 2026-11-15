@@ -935,6 +935,12 @@ img { display: block; max-width: 100%; }
   gap: 1.15rem;
 }
 
+/* Biodata skills: four curriculum groups plus a full-width interests strip.
+   Fixed 2-up so the row never ends with a single orphan card. */
+.skills-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .card-tag {
   display: inline-flex;
   align-items: center;
@@ -1690,6 +1696,7 @@ body.is-leaving {
   .bh-stage { max-width: 360px; margin: 0.6rem auto 0; }
   .hero-lead { max-width: none; }
   .profile-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
   .stat-strip { grid-template-columns: repeat(2, 1fr); }
   .project-detail { display: none; }
   .bh-mark { font-size: 0.46rem; letter-spacing: 0.12em; }
