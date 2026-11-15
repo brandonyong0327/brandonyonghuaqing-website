@@ -1113,7 +1113,7 @@ img { display: block; max-width: 100%; }
 
 table {
   width: 100%;
-  min-width: 620px;
+  min-width: 520px;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -1139,6 +1139,18 @@ th {
 }
 
 td { color: rgba(212, 236, 255, 0.8); }
+
+/* second line inside a timetable cell: course code, lecturer, room */
+td .cell-sub {
+  display: block;
+  margin-top: 0.3em;
+  font-family: var(--font-mono);
+  font-size: 0.66em;
+  letter-spacing: 0.06em;
+  color: rgba(150, 210, 255, 0.62);
+}
+
+tbody tr:hover td .cell-sub { color: rgba(206, 244, 255, 0.92); }
 
 tbody tr:nth-child(odd)  td { background: rgba(53, 231, 255, 0.022); }
 tbody tr:nth-child(even) td { background: rgba(63, 124, 255, 0.045); }
