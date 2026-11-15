@@ -1140,6 +1140,18 @@ th {
 
 td { color: rgba(212, 236, 255, 0.8); }
 
+/* course code on its own line above the course name, e.g.
+   IT32503 / Cyber Security */
+td .cell-code {
+  display: block;
+  margin-bottom: 0.28em;
+  font-family: var(--font-mono);
+  font-size: 0.68em;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  opacity: 0.82;
+}
+
 tbody tr:nth-child(odd)  td { background: rgba(53, 231, 255, 0.022); }
 tbody tr:nth-child(even) td { background: rgba(63, 124, 255, 0.045); }
 
