@@ -1050,8 +1050,10 @@ img { display: block; max-width: 100%; }
   max-width: 240px;
   margin-inline: auto;
   aspect-ratio: 1 / 1;
+  padding: 9px;
   border-radius: 50%;
   overflow: hidden;
+  background: rgba(4, 8, 22, 0.86);
   border: 1px solid rgba(53, 231, 255, 0.35);
   box-shadow: 0 0 22px rgba(53, 231, 255, 0.18), inset 0 0 26px rgba(53, 231, 255, 0.1);
   transition: all var(--t-slow) var(--ease);
@@ -1061,6 +1063,8 @@ img { display: block; max-width: 100%; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 38%;
+  border-radius: 50%;
   transition: transform var(--t-slow) var(--ease);
 }
 
