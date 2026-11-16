@@ -1401,7 +1401,179 @@
   })();
 
   /* ===========================================================
-     11. GO
+     11. PROJECT LOG GALLERY (portfolio — tap a card, browse shots)
+     =========================================================== */
+  (function initProjectGallery() {
+    var viewer = document.getElementById('prjViewer');
+    if (!viewer) return;
+
+    var codeEl = document.getElementById('prjCode');
+    var titleEl = document.getElementById('prjTitle');
+    var imgEl = document.getElementById('prjImg');
+    var captionEl = document.getElementById('prjCaption');
+    var indexEl = document.getElementById('prjIndex');
+    var totalEl = document.getElementById('prjTotal');
+    var dotsEl = document.getElementById('prjDots');
+    var prevBtn = document.getElementById('prjPrev');
+    var nextBtn = document.getElementById('prjNext');
+    var closeBtn = document.getElementById('prjClose');
+    var frame = imgEl ? imgEl.parentElement : null;
+
+    /* each project log: title + ordered shots (swap the src list for real screenshots) */
+    var LOGS = {
+      '1': {
+        code: 'PRJ_01', title: 'Student Management System',
+        shots: [
+          { src: 'img-project-1.svg',  cap: 'RECORD GRID / MYSQL LINK OK' },
+          { src: 'img-project-1b.svg', cap: 'PROFILE DETAIL / STAFF ROLE VIEW' },
+          { src: 'img-project-1c.svg', cap: 'GRADE REPORT / 214 RECORDS EXPORTED' }
+        ]
+      },
+      '2': {
+        code: 'PRJ_02', title: 'E-Commerce Website',
+        shots: [
+          { src: 'img-project-2.svg',  cap: 'STOREFRONT / CART FLOW OK' },
+          { src: 'img-project-2b.svg', cap: 'CATALOG GRID / 24 SKU FILTERED' },
+          { src: 'img-project-2c.svg', cap: 'CHECKOUT / TOTAL CONFIRMED' }
+        ]
+      },
+      '3': {
+        code: 'PRJ_03', title: 'Mobile Task Manager',
+        shots: [
+          { src: 'img-project-3.svg',  cap: 'HOME / 24 TASKS SYNCED' },
+          { src: 'img-project-3b.svg', cap: 'TASK LIST / PRIORITY SORTED' },
+          { src: 'img-project-3c.svg', cap: 'WEEK BOARD / OFFLINE REPLAY' }
+        ]
+      },
+      '4': {
+        code: 'PRJ_04', title: "AR Children's Storybook",
+        shots: [
+          { src: 'img-project-4.svg',  cap: 'MARKER DETECTED / 60 FPS' },
+          { src: 'img-project-4b.svg', cap: 'AR SCENE GRAPH / RELOCK OK' },
+          { src: 'img-project-4c.svg', cap: 'STORY SPREAD / PAGE 02' }
+        ]
+      }
+    };
+
+    var cards = document.querySelectorAll('.project-card[data-prj]');
+    if (!cards.length) return;
+
+    var shots = [];
+    var cursor = 0;
+    var lastFocus = null;
+
+    function isOpen() { return !viewer.hasAttribute('hidden'); }
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function paint() {
+      var shot = shots[cursor];
+      if (!shot || !imgEl) return;
+      imgEl.src = shot.src;
+      imgEl.alt = titleEl.textContent + ' — image ' + (cursor + 1) + ' of ' + shots.length;
+      captionEl.textContent = shot.cap;
+      indexEl.textContent = pad(cursor + 1);
+      totalEl.textContent = pad(shots.length);
+
+      var dots = dotsEl ? dotsEl.children : [];
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = i === cursor ? 'is-on' : '';
+      }
+      var solo = shots.length < 2;
+      if (prevBtn) prevBtn.disabled = solo;
+      if (nextBtn) nextBtn.disabled = solo;
+    }
+
+    function buildDots() {
+      if (!dotsEl) return;
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < shots.length; i++) dotsEl.appendChild(document.createElement('i'));
+    }
+
+    function step(dir) {
+      if (shots.length < 2) return;
+      cursor = (cursor + dir + shots.length) % shots.length;
+      paint();
+    }
+
+    function openCard(card) {
+      var log = LOGS[card.getAttribute('data-prj')];
+      if (!log) return;
+      shots = log.shots;
+      cursor = 0;
+      codeEl.textContent = log.code;
+      titleEl.textContent = log.title;
+      buildDots();
+      paint();
+
+      lastFocus = document.activeElement;
+      viewer.removeAttribute('hidden');
+      viewer.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('prj-open');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeViewer() {
+      viewer.setAttribute('hidden', '');
+      viewer.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('prj-open');
+      if (lastFocus && lastFocus !== document.body && lastFocus.focus) lastFocus.focus();
+    }
+
+    Array.prototype.forEach.call(cards, function (card) {
+      card.addEventListener('click', function () { openCard(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          openCard(card);
+        }
+      });
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
+    if (closeBtn) closeBtn.addEventListener('click', closeViewer);
+
+    /* backdrop click closes; clicks inside the shell stay put */
+    viewer.addEventListener('click', function (e) {
+      if (e.target === viewer) closeViewer();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen()) return;
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        closeViewer();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        step(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        step(-1);
+      }
+    });
+
+    /* swipe the image on touch screens */
+    if (frame) {
+      var sx = 0, sy = 0, tracking = false;
+      frame.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        sx = e.touches[0].clientX;
+        sy = e.touches[0].clientY;
+        tracking = true;
+      }, { passive: true });
+      frame.addEventListener('touchend', function (e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - sx;
+        var dy = t.clientY - sy;
+        if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+      }, { passive: true });
+    }
+  })();
+
+  /* ===========================================================
+     12. GO
      =========================================================== */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);

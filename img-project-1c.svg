@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050813"/>
+      <stop offset="55%" stop-color="#081227"/>
+      <stop offset="100%" stop-color="#0a0a1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="52%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="rgb(161,99,255)" stop-opacity="0.2"/>
+      <stop offset="72%" stop-color="rgb(161,99,255)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg)"/>
+  <rect width="400" height="250" fill="url(#glow)"/>
+
+  <g stroke="rgb(53,231,255)" stroke-opacity="0.11" stroke-width="1">
+    <path d="M0 60 H400 M0 110 H400 M0 160 H400"/>
+    <path d="M60 0 V250 M120 0 V250 M180 0 V250 M240 0 V250 M300 0 V250 M360 0 V250"/>
+  </g>
+
+  <g fill="none" stroke="rgb(53,231,255)" stroke-opacity="0.28" stroke-width="1">
+    <path d="M48 196 H352"/>
+  </g>
+
+  <g fill="rgb(53,231,255)" fill-opacity="0.34">
+    <rect x="64" y="156" width="24" height="40" rx="2"/>
+    <rect x="104" y="132" width="24" height="64" rx="2"/>
+    <rect x="144" y="168" width="24" height="28" rx="2"/>
+    <rect x="184" y="112" width="24" height="84" rx="2"/>
+    <rect x="224" y="146" width="24" height="50" rx="2"/>
+    <rect x="264" y="92" width="24" height="104" rx="2"/>
+    <rect x="304" y="120" width="24" height="76" rx="2"/>
+  </g>
+
+  <g fill="rgb(161,99,255)" fill-opacity="0.9">
+    <rect x="264" y="92" width="24" height="4"/>
+    <rect x="184" y="112" width="24" height="3"/>
+  </g>
+
+  <g fill="none" stroke="rgb(53,231,255)" stroke-opacity="0.5" stroke-width="1.3">
+    <rect x="48" y="60" width="304" height="136"/>
+  </g>
+
+  <text x="20" y="32" font-family="monospace" font-size="9" letter-spacing="2" fill="rgb(53,231,255)" fill-opacity="0.6">REPORT / GRADE DISTRIBUTION</text>
+  <text x="20" y="234" font-family="monospace" font-size="8" letter-spacing="1.6" fill="rgb(107,131,166)">214 RECORDS / EXPORT READY</text>
+</svg>

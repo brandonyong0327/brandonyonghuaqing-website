@@ -60,11 +60,12 @@
     <div class="card-grid">
 
       <!-- PROJECT 01 -->
-      <article class="hud-card project-card">
+      <article class="hud-card project-card" data-prj="1" role="button" tabindex="0" aria-label="Open Student Management System project log">
         <div class="project-media">
           <img src="img-project-1.svg" alt="Student Management System interface preview">
           <span class="project-id">PRJ_01</span>
           <span class="project-status"><span class="led"></span>COMPLETE</span>
+          <span class="project-open">VIEW LOG <b>&#8594;</b></span>
         </div>
         <div class="project-body">
           <h3 class="card-title">Student Management System</h3>
@@ -86,11 +87,12 @@
       </article>
 
       <!-- PROJECT 02 -->
-      <article class="hud-card project-card">
+      <article class="hud-card project-card" data-prj="2" role="button" tabindex="0" aria-label="Open E-Commerce Website project log">
         <div class="project-media">
           <img src="img-project-2.svg" alt="E-Commerce Website interface preview">
           <span class="project-id">PRJ_02</span>
           <span class="project-status"><span class="led"></span>COMPLETE</span>
+          <span class="project-open">VIEW LOG <b>&#8594;</b></span>
         </div>
         <div class="project-body">
           <h3 class="card-title">E-Commerce Website</h3>
@@ -113,11 +115,12 @@
       </article>
 
       <!-- PROJECT 03 -->
-      <article class="hud-card project-card">
+      <article class="hud-card project-card" data-prj="3" role="button" tabindex="0" aria-label="Open Mobile Task Manager project log">
         <div class="project-media">
           <img src="img-project-3.svg" alt="Mobile To-Do App interface preview">
           <span class="project-id">PRJ_03</span>
           <span class="project-status"><span class="led"></span>COMPLETE</span>
+          <span class="project-open">VIEW LOG <b>&#8594;</b></span>
         </div>
         <div class="project-body">
           <h3 class="card-title">Mobile Task Manager</h3>
@@ -139,11 +142,12 @@
       </article>
 
       <!-- PROJECT 04 -->
-      <article class="hud-card project-card">
+      <article class="hud-card project-card" data-prj="4" role="button" tabindex="0" aria-label="Open AR Children's Storybook project log">
         <div class="project-media">
           <img src="img-project-4.svg" alt="AR Storybook marker preview">
           <span class="project-id">PRJ_04</span>
           <span class="project-status"><span class="led"></span>COMPLETE</span>
+          <span class="project-open">VIEW LOG <b>&#8594;</b></span>
         </div>
         <div class="project-body">
           <h3 class="card-title">AR Children's Storybook</h3>
@@ -256,6 +260,40 @@
   <div class="cb-meter"><i></i></div>
   <div class="cb-item cb-push">&copy; 2026 Brandon Yong Hua Qing &nbsp;/&nbsp; BI24110137</div>
 </footer>
+
+<div class="prj-viewer" id="prjViewer" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="prjTitle">
+  <div class="prj-shell">
+    <header class="prj-head">
+      <div class="prj-head-left">
+        <span class="prj-code" id="prjCode">PRJ_01</span>
+        <h2 class="prj-title" id="prjTitle">Student Management System</h2>
+      </div>
+      <button class="prj-close" id="prjClose" type="button"><span>CLOSE</span><b>ESC</b></button>
+    </header>
+
+    <div class="prj-stage">
+      <button class="prj-arrow prj-prev" id="prjPrev" type="button" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20"/></svg><span class="prj-arrow-tag">PREV</span>
+      </button>
+      <div class="prj-frame">
+        <img class="prj-img" id="prjImg" src="" alt="">
+        <span class="prj-scan" aria-hidden="true"></span>
+      </div>
+      <button class="prj-arrow prj-next" id="prjNext" type="button" aria-label="Next image">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20"/></svg><span class="prj-arrow-tag">NEXT</span>
+      </button>
+    </div>
+
+    <footer class="prj-foot">
+      <p class="prj-caption" id="prjCaption">&mdash;</p>
+      <div class="prj-meta">
+        <div class="prj-dots" id="prjDots" aria-hidden="true"></div>
+        <span class="prj-count"><b id="prjIndex">01</b> / <span id="prjTotal">03</span></span>
+      </div>
+    </footer>
+    <p class="prj-hint">ARROWS <b>&#8592; &#8594;</b> &nbsp;/&nbsp; SWIPE ON TOUCH &nbsp;/&nbsp; ESC TO CLOSE</p>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
