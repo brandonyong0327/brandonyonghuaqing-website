@@ -1046,6 +1046,12 @@ img { display: block; max-width: 100%; }
 /* ---------- 13. AVATAR FRAME ---------- */
 .avatar-frame {
   position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  font: inherit;
+  color: inherit;
+  cursor: zoom-in;
   width: 100%;
   max-width: 240px;
   margin-inline: auto;
@@ -1090,6 +1096,106 @@ img { display: block; max-width: 100%; }
   grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
   gap: 1.6rem;
   align-items: start;
+}
+
+/* ---------- 13B. PORTRAIT VIEWER (full screen) ---------- */
+html.pv-open { overflow: hidden; }
+
+.portrait-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: grid;
+  place-items: center;
+  padding: 3.5vh 4vw;
+  background: radial-gradient(circle at 50% 42%, rgba(6, 12, 32, 0.88), rgba(1, 2, 8, 0.97));
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  animation: pvFade 0.26s ease both;
+  cursor: zoom-out;
+}
+
+.portrait-viewer[hidden] { display: none; }
+
+@keyframes pvFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pv-frame {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  cursor: default;
+  animation: pvPop 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pvPop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+.pv-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(90vw, 62vh);
+  max-height: 68vh;
+  border-radius: 6px;
+  border: 1px solid rgba(53, 231, 255, 0.42);
+  box-shadow: 0 0 0 1px rgba(4, 8, 22, 0.9), 0 26px 70px rgba(0, 0, 0, 0.62), 0 0 44px rgba(53, 231, 255, 0.16);
+  cursor: zoom-out;
+}
+
+.pv-head,
+.pv-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.17em;
+  color: var(--dim);
+}
+
+.pv-tag { color: rgba(150, 210, 255, 0.82); }
+
+.pv-close {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  padding: 0.42rem 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.17em;
+  color: rgba(212, 236, 255, 0.82);
+  background: rgba(8, 16, 38, 0.82);
+  border: 1px solid rgba(53, 231, 255, 0.28);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+              box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.pv-close:hover,
+.pv-close:focus-visible {
+  color: var(--cyan);
+  border-color: rgba(53, 231, 255, 0.62);
+  background: rgba(14, 28, 58, 0.9);
+  box-shadow: 0 0 14px rgba(53, 231, 255, 0.22);
+}
+
+@media (max-width: 640px) {
+  .portrait-viewer { padding: 2.5vh 3vw; }
+  .pv-img { max-width: 94vw; max-height: 58vh; }
+  .pv-head { font-size: 0.52rem; letter-spacing: 0.12em; }
+  .pv-foot { justify-content: center; text-align: center; font-size: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-viewer,
+  .pv-frame { animation: none; }
 }
 
 /* ---------- 14. TIMETABLE ---------- */

@@ -1350,7 +1350,58 @@
   }
 
   /* ===========================================================
-     10. GO
+     10. PORTRAIT VIEWER (biodata only — open the photo full size)
+     =========================================================== */
+  (function initPortraitViewer() {
+    var viewer = document.getElementById('portraitViewer');
+    var opener = document.getElementById('avatarOpen');
+    if (!viewer || !opener) return;
+
+    var closeBtn = document.getElementById('pvClose');
+    var lastFocus = null;
+
+    function isOpen() { return !viewer.hasAttribute('hidden'); }
+
+    function openViewer() {
+      lastFocus = document.activeElement;
+      viewer.removeAttribute('hidden');
+      document.documentElement.classList.add('pv-open');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeViewer() {
+      viewer.setAttribute('hidden', '');
+      document.documentElement.classList.remove('pv-open');
+      if (lastFocus && lastFocus !== document.body && lastFocus.focus) lastFocus.focus();
+      else opener.focus();
+    }
+
+    opener.addEventListener('click', openViewer);
+
+    /* clicking anywhere in the viewer (backdrop or the photo) closes it */
+    viewer.addEventListener('click', function (e) {
+      if (closeBtn && e.target === closeBtn) return; /* handled by its own listener */
+      closeViewer();
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeViewer();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen()) return;
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        closeViewer();
+      }
+    });
+  })();
+
+  /* ===========================================================
+     11. GO
      =========================================================== */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
