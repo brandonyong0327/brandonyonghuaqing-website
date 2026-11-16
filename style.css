@@ -661,6 +661,12 @@ img { display: block; max-width: 100%; }
   line-height: 1.9;
 }
 
+/* narrow phones: break the subtitle right after the role, so "FKI / UMS"
+   stays together on the second line instead of leaving one word orphaned */
+@media (max-width: 520px) {
+  .hero-sub .sub-main { display: block; }
+}
+
 .hero-lead {
   font-size: 1.02rem;
   color: rgba(212, 236, 255, 0.82);
