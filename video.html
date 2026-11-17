@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="icon" href="data:,">
 <title>VIDEO // DEEP SPACE PORTFOLIO</title>
-<meta name="description" content="A short introduction video presented inside a sci-fi console shell.">
+<meta name="description" content="Video archive of coursework and personal projects, presented inside a sci-fi console shell.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-module="VIDEO">
@@ -53,64 +53,17 @@
 
   <section class="section">
     <div class="section-head">
-      <h2 class="section-title">// TRANSMISSION 01</h2>
+      <h2 class="section-title">// TRANSMISSION ARCHIVE</h2>
       <div class="section-index">SEC <b>01</b></div>
     </div>
 
-    <div class="video-shell">
-      <div class="video-frame">
-        <!-- Replace the YouTube ID below with your own video ID.
-             YouTube -> Share -> Embed -> copy the src URL. -->
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Introduction video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+    <p class="archive-note" id="videoNote">INDEXING MEDIA SLOTS&hellip;</p>
 
-        <!-- OPTION B: local file. Put video.mp4 in this folder, then
-             uncomment this block and delete the iframe above:
+    <div class="video-grid" id="videoGrid"></div>
 
-        <video controls>
-          <source src="video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        -->
-      </div>
-
-      <div class="video-meta">
-        <span>SRC / YT_EMBED &nbsp;·&nbsp; NATIVE RESOLUTION KEPT</span>
-        <span class="led"></span>
-        <span>CH_01</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2 class="section-title">// ABOUT THIS TRANSMISSION</h2>
-      <div class="section-index">SEC <b>02</b></div>
-    </div>
-
-    <div class="card-grid">
-      <article class="hud-card">
-        <span class="card-tag"><span class="led"></span> LOG_01</span>
-        <h3 class="card-title">What this video covers</h3>
-        <p class="card-text">
-          A short introduction: who I am, where I study, what I build, and why I care
-          about interfaces that stay readable while still feeling alive.
-        </p>
-      </article>
-
-      <article class="hud-card">
-        <span class="card-tag"><span class="led"></span> LOG_02</span>
-        <h3 class="card-title">Production notes</h3>
-        <p class="card-text">
-          Recorded at native resolution and embedded without filters, so the frame stays
-          sharp inside the neon shell instead of being softened by effects.
-        </p>
-      </article>
-    </div>
+    <p class="archive-empty" id="videoEmpty" hidden>
+      NO TRANSMISSIONS STORED ON THIS CHANNEL YET
+    </p>
   </section>
 
 </main>
@@ -118,7 +71,7 @@
 <aside class="hud-panel hud-left">
   <div class="panel-head">MEDIA CHANNEL <b>04</b></div>
   <div class="panel-row"><span>UPTIME</span><b id="hudUptime">00:00:00</b></div>
-  <div class="panel-row"><span>STREAM</span><b class="cyan">LIVE</b></div>
+  <div class="panel-row"><span>STREAM</span><b class="cyan">ARCHIVE</b></div>
   <div class="panel-row"><span>FORMAT</span><b>16:9</b></div>
   <div class="panel-row"><span>SOURCE</span><b>YOUTUBE</b></div>
   <div class="panel-divider"></div>
@@ -178,6 +131,44 @@
   <div class="cb-meter"><i></i></div>
   <div class="cb-item cb-push">&copy; 2026 Brandon Yong Hua Qing &nbsp;/&nbsp; BI24110137</div>
 </footer>
+
+<div class="vid-viewer" id="vidViewer" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vidTitle">
+  <div class="vid-shell">
+    <header class="vid-head">
+      <div class="vid-head-left">
+        <span class="vid-code" id="vidCode">TX_01</span>
+        <h2 class="vid-title" id="vidTitle">&mdash;</h2>
+      </div>
+      <button class="vid-close" id="vidClose" type="button"><span>CLOSE</span><b>ESC</b></button>
+    </header>
+
+    <div class="vid-stage">
+      <button class="vid-arrow vid-prev" id="vidPrev" type="button" aria-label="Previous video">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20"/></svg><span class="vid-arrow-tag">PREV</span>
+      </button>
+      <div class="vid-frame">
+        <iframe id="vidPlayer" src="about:blank" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        <div class="vid-empty" id="vidEmpty" hidden>
+          <span>NO MEDIA LOADED</span>
+          <b>SLOT RESERVED FOR TRANSFER</b>
+        </div>
+      </div>
+      <button class="vid-arrow vid-next" id="vidNext" type="button" aria-label="Next video">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20"/></svg><span class="vid-arrow-tag">NEXT</span>
+      </button>
+    </div>
+
+    <p class="vid-desc" id="vidDesc">&mdash;</p>
+
+    <footer class="vid-foot">
+      <div class="vid-dots" id="vidDots" aria-hidden="true"></div>
+      <span class="vid-count"><b id="vidIndex">01</b> / <span id="vidTotal">01</span></span>
+    </footer>
+    <p class="vid-hint">ARROWS <b>&#8592; &#8594;</b> &nbsp;/&nbsp; ESC TO CLOSE &nbsp;/&nbsp; SOURCE YOUTUBE</p>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

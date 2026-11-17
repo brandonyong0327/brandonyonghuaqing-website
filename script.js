@@ -1573,7 +1573,237 @@
   })();
 
   /* ===========================================================
-     12. GO
+     12. VIDEO ARCHIVE (video.html — cards + single-item player)
+     =========================================================== */
+  (function initVideoArchive() {
+    var grid = document.getElementById('videoGrid');
+    if (!grid) return;
+
+    /* -------------------------------------------------------------------
+       DATA SOURCE — one entry per video.
+       yt   : YouTube video id (leave "" until the clip is imported)
+       desc : the description you write for this clip
+       ------------------------------------------------------------------- */
+    var VIDEOS = [
+      {
+        code: 'TX_01', title: 'Slot 01 — awaiting clip',
+        yt: '', poster: 'img-video-1.svg', dur: '--:--',
+        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+      },
+      {
+        code: 'TX_02', title: 'Slot 02 — awaiting clip',
+        yt: '', poster: 'img-video-2.svg', dur: '--:--',
+        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+      },
+      {
+        code: 'TX_03', title: 'Slot 03 — awaiting clip',
+        yt: '', poster: 'img-video-3.svg', dur: '--:--',
+        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+      }
+    ];
+
+    var noteEl = document.getElementById('videoNote');
+    var emptyEl = document.getElementById('videoEmpty');
+    var viewer = document.getElementById('vidViewer');
+    var codeEl = document.getElementById('vidCode');
+    var titleEl = document.getElementById('vidTitle');
+    var descEl = document.getElementById('vidDesc');
+    var indexEl = document.getElementById('vidIndex');
+    var totalEl = document.getElementById('vidTotal');
+    var dotsEl = document.getElementById('vidDots');
+    var frameIframe = document.getElementById('vidPlayer');
+    var emptyBox = document.getElementById('vidEmpty');
+    var prevBtn = document.getElementById('vidPrev');
+    var nextBtn = document.getElementById('vidNext');
+    var closeBtn = document.getElementById('vidClose');
+
+    var loaded = 0;
+    VIDEOS.forEach(function (v) { if (v.yt) loaded += 1; });
+
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function embedUrl(id) {
+      return 'https://www.youtube.com/embed/' + id +
+        '?rel=0&modestbranding=1&playsinline=1&color=white';
+    }
+
+    /* ---------- archive cards ---------- */
+    function buildCard(v, i) {
+      var card = document.createElement('article');
+      card.className = 'hud-card video-card';
+      card.setAttribute('data-vid', String(i));
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Open video ' + v.code + ': ' + v.title);
+
+      var poster = document.createElement('div');
+      poster.className = 'video-poster';
+
+      var img = document.createElement('img');
+      img.src = v.poster;
+      img.alt = v.title + ' preview';
+      img.loading = 'lazy';
+      poster.appendChild(img);
+
+      var play = document.createElement('span');
+      play.className = 'video-play';
+      play.appendChild(document.createElement('i'));
+      poster.appendChild(play);
+
+      var idTag = document.createElement('span');
+      idTag.className = 'video-id';
+      idTag.textContent = v.code;
+      poster.appendChild(idTag);
+
+      var dur = document.createElement('span');
+      dur.className = 'video-dur';
+      dur.textContent = v.dur;
+      poster.appendChild(dur);
+
+      var body = document.createElement('div');
+      body.className = 'video-body';
+
+      var h = document.createElement('h3');
+      h.className = 'card-title';
+      h.textContent = v.title;
+      body.appendChild(h);
+
+      var p = document.createElement('p');
+      p.className = 'card-text';
+      p.textContent = v.desc;
+      body.appendChild(p);
+
+      var slot = document.createElement('span');
+      slot.className = 'video-slot';
+      slot.textContent = v.yt ? 'STREAM READY' : 'SLOT RESERVED';
+      body.appendChild(slot);
+
+      card.appendChild(poster);
+      card.appendChild(body);
+      return card;
+    }
+
+    function renderArchive() {
+      grid.innerHTML = '';
+      VIDEOS.forEach(function (v, i) {
+        grid.appendChild(buildCard(v, i));
+      });
+
+      if (noteEl) {
+        noteEl.textContent = VIDEOS.length + ' SLOTS · ' + loaded + ' STREAM' +
+          (loaded === 1 ? '' : 'S') + ' LOADED · SOURCE YOUTUBE';
+      }
+      if (emptyEl) emptyEl.hidden = VIDEOS.length > 0;
+    }
+
+    /* ---------- player overlay ---------- */
+    var cursor = 0;
+    var lastFocus = null;
+
+    function isOpen() { return !viewer.hasAttribute('hidden'); }
+
+    function paint() {
+      var v = VIDEOS[cursor];
+      if (!v) return;
+
+      codeEl.textContent = v.code;
+      titleEl.textContent = v.title;
+      descEl.textContent = v.desc;
+      indexEl.textContent = pad(cursor + 1);
+      totalEl.textContent = pad(VIDEOS.length);
+
+      if (dotsEl) {
+        dotsEl.innerHTML = '';
+        if (VIDEOS.length <= 12) {
+          for (var i = 0; i < VIDEOS.length; i++) {
+            var dot = document.createElement('i');
+            if (i === cursor) dot.className = 'is-on';
+            dotsEl.appendChild(dot);
+          }
+        }
+      }
+
+      var solo = VIDEOS.length < 2;
+      if (prevBtn) prevBtn.disabled = solo;
+      if (nextBtn) nextBtn.disabled = solo;
+
+      if (v.yt && frameIframe) {
+        if (emptyBox) emptyBox.hidden = true;
+        frameIframe.title = v.title;
+        frameIframe.src = embedUrl(v.yt);
+      } else if (frameIframe) {
+        frameIframe.src = 'about:blank';
+        frameIframe.title = 'No media loaded';
+        if (emptyBox) emptyBox.hidden = false;
+      }
+    }
+
+    function openAt(i) {
+      cursor = i;
+      lastFocus = document.activeElement;
+      viewer.removeAttribute('hidden');
+      viewer.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('vid-open');
+      paint();
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeViewer() {
+      viewer.setAttribute('hidden', '');
+      viewer.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('vid-open');
+      /* stop any running playback and release the stream */
+      if (frameIframe) frameIframe.src = 'about:blank';
+      if (lastFocus && lastFocus !== document.body && lastFocus.focus) lastFocus.focus();
+    }
+
+    function step(dir) {
+      if (VIDEOS.length < 2) return;
+      cursor = (cursor + dir + VIDEOS.length) % VIDEOS.length;
+      paint();
+    }
+
+    renderArchive();
+
+    grid.addEventListener('click', function (e) {
+      var card = e.target.closest ? e.target.closest('.video-card') : null;
+      if (!card) return;
+      openAt(parseInt(card.getAttribute('data-vid'), 10) || 0);
+    });
+
+    grid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      var card = e.target.closest ? e.target.closest('.video-card') : null;
+      if (!card) return;
+      e.preventDefault();
+      openAt(parseInt(card.getAttribute('data-vid'), 10) || 0);
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
+    if (closeBtn) closeBtn.addEventListener('click', closeViewer);
+
+    viewer.addEventListener('click', function (e) {
+      if (e.target === viewer) closeViewer();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen()) return;
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        closeViewer();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        step(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        step(-1);
+      }
+    });
+  })();
+
+  /* ===========================================================
+     13. GO
      =========================================================== */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
