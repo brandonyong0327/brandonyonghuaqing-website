@@ -997,6 +997,15 @@
   var lastFrame = 0;
 
   function loop() {
+    /* any full-screen overlay covers the whole scene: skip every repaint
+       while one is open so the player / gallery gets the whole GPU */
+    var root = document.documentElement;
+    if (root.classList.contains('vid-open') ||
+        root.classList.contains('pv-open') ||
+        root.classList.contains('prj-open')) {
+      rafId = document.hidden ? null : requestAnimationFrame(loop);
+      return;
+    }
     var now = performance.now();
     if (frameGap && now - lastFrame < frameGap) {
       rafId = document.hidden ? null : requestAnimationFrame(loop);
