@@ -1918,6 +1918,11 @@ select option { background: #060a16; color: var(--ice); }
   color: rgba(161, 99, 255, 0.85);
 }
 
+.video-body .card-text.is-pending {
+  color: rgba(107, 131, 166, 0.72);
+  font-style: italic;
+}
+
 /* player overlay */
 html.vid-open { overflow: hidden; }
 
@@ -2092,6 +2097,13 @@ html.vid-open { overflow: hidden; }
   padding: 0.15rem 0.1rem 0;
   max-height: 22vh;
   overflow-y: auto;
+}
+
+.vid-desc.is-pending {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(107, 131, 166, 0.88);
 }
 
 .vid-foot {

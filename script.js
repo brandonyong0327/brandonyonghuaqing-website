@@ -1581,26 +1581,51 @@
 
     /* -------------------------------------------------------------------
        DATA SOURCE — one entry per video.
-       yt   : YouTube video id (leave "" until the clip is imported)
-       desc : the description you write for this clip
+       yt   : YouTube video id  (thumbnail is derived from it)
+       dur  : duration shown on the card
+       desc : the description you write for this clip (empty = pending)
        ------------------------------------------------------------------- */
+    function ytThumb(id) {
+      return 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+    }
+
     var VIDEOS = [
       {
-        code: 'TX_01', title: 'Slot 01 — awaiting clip',
-        yt: '', poster: 'img-video-1.svg', dur: '--:--',
-        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+        code: 'TX_01', title: 'Animation Group Assignment (Group Atomic)',
+        yt: 'BLGAc_iYeA0', dur: '2:27', desc: ''
       },
       {
-        code: 'TX_02', title: 'Slot 02 — awaiting clip',
-        yt: '', poster: 'img-video-2.svg', dur: '--:--',
-        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+        code: 'TX_02', title: 'AR Tutorial 1 — Session 2026/2017',
+        yt: 'GQqusOhlZM4', dur: '0:47', desc: ''
       },
       {
-        code: 'TX_03', title: 'Slot 03 — awaiting clip',
-        yt: '', poster: 'img-video-3.svg', dur: '--:--',
-        desc: 'Media slot reserved. The clip and its description will be loaded here once the video file is handed over.'
+        code: 'TX_03', title: 'AR Tutorial 5',
+        yt: 'vuBT88_S_LI', dur: '0:18', desc: ''
+      },
+      {
+        code: 'TX_04', title: 'AR Tutorial 4',
+        yt: 'hDkoKLWNv2A', dur: '0:41', desc: ''
+      },
+      {
+        code: 'TX_05', title: 'AR Tutorial 3',
+        yt: 'lekUeLA5P8s', dur: '0:27', desc: ''
+      },
+      {
+        code: 'TX_06', title: 'AR Tutorial Report 2',
+        yt: '8IsMXdYMjUk', dur: '0:19', desc: ''
+      },
+      {
+        code: 'TX_07', title: 'Animation Practical Report 2',
+        yt: 'BhfePvVQzjs', dur: '0:18', desc: ''
+      },
+      {
+        code: 'TX_08', title: 'Push — Group Project 2025/2026 (Short Film + CGI/VFX)',
+        yt: 'J-5dhWwY4n8', dur: '7:12', desc: ''
       }
-    ];
+    ].map(function (v) {
+      v.poster = v.poster || ytThumb(v.yt);
+      return v;
+    });
 
     var noteEl = document.getElementById('videoNote');
     var emptyEl = document.getElementById('videoEmpty');
@@ -1670,7 +1695,8 @@
 
       var p = document.createElement('p');
       p.className = 'card-text';
-      p.textContent = v.desc;
+      p.textContent = v.desc || 'Description pending.';
+      if (!v.desc) p.classList.add('is-pending');
       body.appendChild(p);
 
       var slot = document.createElement('span');
@@ -1708,7 +1734,8 @@
 
       codeEl.textContent = v.code;
       titleEl.textContent = v.title;
-      descEl.textContent = v.desc;
+      descEl.textContent = v.desc || 'DESCRIPTION PENDING — this write-up has not been added yet.';
+      descEl.classList.toggle('is-pending', !v.desc);
       indexEl.textContent = pad(cursor + 1);
       totalEl.textContent = pad(VIDEOS.length);
 
