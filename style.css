@@ -2047,6 +2047,8 @@ html.vid-open { overflow: hidden; }
   letter-spacing: 0.16em;
 }
 
+.vid-empty[hidden] { display: none; }
+
 .vid-empty span { font-size: 0.78rem; color: rgba(53, 231, 255, 0.82); }
 .vid-empty b { font-size: 0.62rem; font-weight: 500; color: rgba(107, 131, 166, 0.92); }
 
