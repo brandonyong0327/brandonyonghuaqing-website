@@ -1604,32 +1604,32 @@
         yt: 'BLGAc_iYeA0', dur: '2:27', desc: ''
       },
       {
-        code: 'TX_02', title: 'AR Tutorial 1 — Session 2026/2017',
+        code: 'TX_02', title: 'Push — Group Project 2025/2026 (Short Film + CGI/VFX)',
+        yt: 'J-5dhWwY4n8', dur: '7:12', desc: ''
+      },
+      {
+        code: 'TX_03', title: 'AR Tutorial 1 — Session 2026/2017',
         yt: 'GQqusOhlZM4', dur: '0:47', desc: ''
       },
       {
-        code: 'TX_03', title: 'AR Tutorial 5',
-        yt: 'vuBT88_S_LI', dur: '0:18', desc: ''
-      },
-      {
-        code: 'TX_04', title: 'AR Tutorial 4',
-        yt: 'hDkoKLWNv2A', dur: '0:41', desc: ''
+        code: 'TX_04', title: 'AR Tutorial 2',
+        yt: '8IsMXdYMjUk', dur: '0:19', desc: ''
       },
       {
         code: 'TX_05', title: 'AR Tutorial 3',
         yt: 'lekUeLA5P8s', dur: '0:27', desc: ''
       },
       {
-        code: 'TX_06', title: 'AR Tutorial Report 2',
-        yt: '8IsMXdYMjUk', dur: '0:19', desc: ''
+        code: 'TX_06', title: 'AR Tutorial 4',
+        yt: 'hDkoKLWNv2A', dur: '0:41', desc: ''
       },
       {
-        code: 'TX_07', title: 'Animation Practical Report 2',
+        code: 'TX_07', title: 'AR Tutorial 5',
+        yt: 'vuBT88_S_LI', dur: '0:18', desc: ''
+      },
+      {
+        code: 'TX_08', title: 'Animation Practical Report 2',
         yt: 'BhfePvVQzjs', dur: '0:18', desc: ''
-      },
-      {
-        code: 'TX_08', title: 'Push — Group Project 2025/2026 (Short Film + CGI/VFX)',
-        yt: 'J-5dhWwY4n8', dur: '7:12', desc: ''
       }
     ].map(function (v) {
       v.poster = v.poster || ytThumb(v.yt);
