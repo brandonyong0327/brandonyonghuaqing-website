@@ -996,7 +996,32 @@
   var frameGap = isMobile ? 32 : 0;
   var lastFrame = 0;
 
+  /* full-screen overlays freeze the scene outright: cancelling the pending
+     frame stops every repaint instead of just skipping one per tick */
+  var sceneFrozen = false;
+
+  function freezeScene() {
+    sceneFrozen = true;
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  function resumeScene() {
+    sceneFrozen = false;
+    if (reduced || rafId !== null) return;
+    var now = performance.now();
+    drawSpace(now - startTime, mx, my);
+    drawBlackHole(now - startTime, mx, my);
+    loop();
+  }
+
   function loop() {
+    if (sceneFrozen) {
+      rafId = null;
+      return;
+    }
     /* any full-screen overlay covers the whole scene: skip every repaint
        while one is open so the player / gallery gets the whole GPU */
     var root = document.documentElement;
@@ -1491,9 +1516,22 @@
     var shots = [];
     var cursor = 0;
     var lastFocus = null;
+    var preloadCache = [];
 
     function isOpen() { return !viewer.hasAttribute('hidden'); }
     function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    /* decode every shot before the arrows are used, so a flip never waits
+       on the decoder in the middle of the overlay animation */
+    function preloadShots(list) {
+      for (var i = 0; i < list.length; i++) {
+        var im = new Image();
+        im.decoding = 'async';
+        im.src = list[i].src;
+        if (im.decode) im.decode().catch(function () {});
+        preloadCache.push(im);
+      }
+    }
 
     function paint() {
       var shot = shots[cursor];
@@ -1530,6 +1568,7 @@
       if (!log) return;
       shots = log.shots;
       cursor = 0;
+      preloadShots(shots);
       codeEl.textContent = log.code;
       titleEl.textContent = log.title;
       buildDots();
@@ -1539,6 +1578,7 @@
       viewer.removeAttribute('hidden');
       viewer.setAttribute('aria-hidden', 'false');
       document.documentElement.classList.add('prj-open');
+      freezeScene();
       if (closeBtn) closeBtn.focus();
     }
 
@@ -1546,6 +1586,7 @@
       viewer.setAttribute('hidden', '');
       viewer.setAttribute('aria-hidden', 'true');
       document.documentElement.classList.remove('prj-open');
+      resumeScene();
       if (lastFocus && lastFocus !== document.body && lastFocus.focus) lastFocus.focus();
     }
 
