@@ -1463,10 +1463,7 @@
           { src: 'img-anim-3.png', cap: 'NEON STREET DIORAMA / SET BUILD' },
           { src: 'img-anim-4.png', cap: 'INTERACTIVE SCENE / STATS PANEL' },
           { src: 'img-anim-5.png', cap: 'CHIBI CHARACTER / STYLISED' },
-          { src: 'img-anim-6.png', cap: 'ISOMETRIC ROOM / PROP LAYOUT' },
-          { src: 'img-push-1.jpg', cap: 'PUSH / CGI SHORT FILM TITLE' },
-          { src: 'img-push-2.jpg', cap: 'PUSH / LIVE-ACTION NIGHT EXTERIOR' },
-          { src: 'img-push-3.jpg', cap: 'PUSH / GREEN SCREEN + CREDITS' }
+          { src: 'img-anim-6.png', cap: 'ISOMETRIC ROOM / PROP LAYOUT' }
         ]
       },
       '2': {
