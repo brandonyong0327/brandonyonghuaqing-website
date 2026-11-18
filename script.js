@@ -1504,6 +1504,25 @@
           { src: 'multimedia-design/img-md-2.jpg', cap: 'SURREAL LANDSCAPE / BLENDED IMAGES' },
           { src: 'multimedia-design/img-md-4.jpg', cap: 'POSTER / HUMANITARIAN CONFLICT' }
         ]
+      },
+      '6': {
+        code: 'PRJ_06', title: 'System Analysis & Design',
+        shots: [
+          { src: 'system-analysis-design/img-sad-1.jpg',  cap: 'SPLASH / LOADING' },
+          { src: 'system-analysis-design/img-sad-2.jpg',  cap: 'ONBOARDING / THREE-CARD INTRO' },
+          { src: 'system-analysis-design/img-sad-3.jpg',  cap: 'LOGIN / SOCIAL OPTIONS' },
+          { src: 'system-analysis-design/img-sad-4.jpg',  cap: 'SIGN IN / CONFIRM PASSWORD' },
+          { src: 'system-analysis-design/img-sad-5.jpg',  cap: 'HOME / BALANCE + RECENT' },
+          { src: 'system-analysis-design/img-sad-6.jpg',  cap: 'TRANSACTION HISTORY / FILTERS' },
+          { src: 'system-analysis-design/img-sad-7.jpg',  cap: 'AI ASSISTANT / FIN CHAT' },
+          { src: 'system-analysis-design/img-sad-8.jpg',  cap: 'SAVING GOAL / PROGRESS' },
+          { src: 'system-analysis-design/img-sad-9.jpg',  cap: 'STATISTIC / INCOME VS OUTCOME' },
+          { src: 'system-analysis-design/img-sad-10.jpg', cap: 'ACHIEVEMENT / BADGE WALL' },
+          { src: 'system-analysis-design/img-sad-11.jpg', cap: 'LEADERBOARD / TOP TEN' },
+          { src: 'system-analysis-design/img-sad-12.jpg', cap: 'CHAT AND MESSAGE / INBOX' },
+          { src: 'system-analysis-design/img-sad-13.jpg', cap: 'CHAT DETAIL / INVITE CARD' },
+          { src: 'system-analysis-design/img-sad-14.jpg', cap: 'MY PROFILE / ACCOUNT + SETTINGS' }
+        ]
       }
     };
 
