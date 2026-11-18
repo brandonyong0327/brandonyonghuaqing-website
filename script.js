@@ -1431,35 +1431,43 @@
     /* each project log: title + ordered shots (swap the src list for real screenshots) */
     var LOGS = {
       '1': {
-        code: 'PRJ_01', title: 'Student Management System',
+        code: 'PRJ_01', title: 'Animation',
         shots: [
-          { src: 'img-project-1.svg',  cap: 'RECORD GRID / MYSQL LINK OK' },
-          { src: 'img-project-1b.svg', cap: 'PROFILE DETAIL / STAFF ROLE VIEW' },
-          { src: 'img-project-1c.svg', cap: 'GRADE REPORT / 214 RECORDS EXPORTED' }
+          { src: 'img-project-1.svg',  cap: 'KEY POSES / TIMING PASS' },
+          { src: 'img-project-1b.svg', cap: 'IN-BETWEEN / MOTION ARC' },
+          { src: 'img-project-1c.svg', cap: 'RENDER PASS / FINAL CUT' }
         ]
       },
       '2': {
-        code: 'PRJ_02', title: 'E-Commerce Website',
+        code: 'PRJ_02', title: 'Augmented Reality',
         shots: [
-          { src: 'img-project-2.svg',  cap: 'STOREFRONT / CART FLOW OK' },
-          { src: 'img-project-2b.svg', cap: 'CATALOG GRID / 24 SKU FILTERED' },
-          { src: 'img-project-2c.svg', cap: 'CHECKOUT / TOTAL CONFIRMED' }
+          { src: 'img-project-4.svg',  cap: 'IMAGE TARGET / LOCKED' },
+          { src: 'img-project-4b.svg', cap: 'SCENE GRAPH / RELOCK OK' },
+          { src: 'img-project-4c.svg', cap: '3D CONTENT / ON MARKER' }
         ]
       },
       '3': {
-        code: 'PRJ_03', title: 'Mobile Task Manager',
+        code: 'PRJ_03', title: 'Java Programming',
         shots: [
-          { src: 'img-project-3.svg',  cap: 'HOME / 24 TASKS SYNCED' },
-          { src: 'img-project-3b.svg', cap: 'TASK LIST / PRIORITY SORTED' },
-          { src: 'img-project-3c.svg', cap: 'WEEK BOARD / OFFLINE REPLAY' }
+          { src: 'img-project-2.svg',  cap: 'CLASS STRUCTURE / MAIN ENTRY' },
+          { src: 'img-project-2b.svg', cap: 'COLLECTIONS / RECORD LIST' },
+          { src: 'img-project-2c.svg', cap: 'FILE I/O / DATA PERSISTS' }
         ]
       },
       '4': {
-        code: 'PRJ_04', title: "AR Children's Storybook",
+        code: 'PRJ_04', title: 'Video Production',
         shots: [
-          { src: 'img-project-4.svg',  cap: 'MARKER DETECTED / 60 FPS' },
-          { src: 'img-project-4b.svg', cap: 'AR SCENE GRAPH / RELOCK OK' },
-          { src: 'img-project-4c.svg', cap: 'STORY SPREAD / PAGE 02' }
+          { src: 'img-project-3.svg',  cap: 'SHOT LIST / PLANNED' },
+          { src: 'img-project-3b.svg', cap: 'TIMELINE / EDIT PASS' },
+          { src: 'img-project-3c.svg', cap: 'SOUND + COLOUR / FINAL MIX' }
+        ]
+      },
+      '5': {
+        code: 'PRJ_05', title: 'Multimedia Design',
+        shots: [
+          { src: 'img-project-5.svg',  cap: 'GRID SYSTEM / SPACING' },
+          { src: 'img-project-5b.svg', cap: 'TYPE SCALE / HIERARCHY' },
+          { src: 'img-project-5c.svg', cap: 'UI STATES / HOVER + PRESS' }
         ]
       }
     };

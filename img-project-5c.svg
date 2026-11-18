@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bg5c" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#050813"/>
+      <stop offset="55%" stop-color="#0a0a1f"/>
+      <stop offset="100%" stop-color="#0d0a24"/>
+    </linearGradient>
+    <radialGradient id="glow5c" cx="50%" cy="45%" r="58%">
+      <stop offset="0%" stop-color="rgb(53,231,255)" stop-opacity="0.16"/>
+      <stop offset="45%" stop-color="rgb(161,99,255)" stop-opacity="0.12"/>
+      <stop offset="80%" stop-color="rgb(161,99,255)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg5c)"/>
+  <rect width="400" height="250" fill="url(#glow5c)"/>
+
+  <g stroke="rgb(161,99,255)" stroke-opacity="0.1" stroke-width="1">
+    <path d="M0 70 H400 M0 140 H400 M0 210 H400"/>
+    <path d="M70 0 V250 M140 0 V250 M210 0 V250 M280 0 V250 M350 0 V250"/>
+  </g>
+
+  <g fill="none" stroke="rgb(53,231,255)" stroke-opacity="0.42" stroke-width="1.2">
+    <rect x="104" y="112" width="86" height="30" rx="3"/>
+    <rect x="104" y="158" width="86" height="30" rx="3"/>
+    <rect x="210" y="112" width="86" height="30" rx="3"/>
+    <rect x="210" y="158" width="86" height="30" rx="3"/>
+  </g>
+  <g fill="rgb(53,231,255)" fill-opacity="0.16">
+    <rect x="210" y="158" width="86" height="30" rx="3"/>
+  </g>
+  <g fill="none" stroke="rgb(161,99,255)" stroke-opacity="0.4" stroke-width="1">
+    <path d="M104 106 H190 M210 106 H296"/>
+  </g>
+
+  <text x="20" y="30" font-family="monospace" font-size="9" letter-spacing="2" fill="rgb(161,99,255)" fill-opacity="0.8">MULTIMEDIA / DESIGN SYSTEM</text>
+  <text x="20" y="234" font-family="monospace" font-size="8" letter-spacing="1.6" fill="rgb(107,131,166)">UI STATES / HOVER + PRESS</text>
+</svg>
