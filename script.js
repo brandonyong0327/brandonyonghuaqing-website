@@ -1471,9 +1471,9 @@
       '4': {
         code: 'PRJ_04', title: 'Video Production',
         shots: [
-          { src: 'img-project-3.svg',  cap: 'SHOT LIST / PLANNED' },
-          { src: 'img-project-3b.svg', cap: 'TIMELINE / EDIT PASS' },
-          { src: 'img-project-3c.svg', cap: 'SOUND + COLOUR / FINAL MIX' }
+          { src: 'img-video-1.jpg', cap: 'PUSH / TITLE CARD' },
+          { src: 'img-video-2.jpg', cap: 'PUSH / NIGHT EXTERIOR' },
+          { src: 'img-video-3.jpg', cap: 'PUSH / GREEN SCREEN + CLOSING CARD' }
         ]
       },
       '5': {
