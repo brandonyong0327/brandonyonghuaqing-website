@@ -1654,7 +1654,7 @@
        DATA SOURCE — one entry per video.
        yt   : YouTube video id  (thumbnail is derived from it)
        dur  : duration shown on the card
-       desc : the description you write for this clip (empty = pending)
+       desc : the description you write for this clip (empty = not shown)
        ------------------------------------------------------------------- */
     function ytThumb(id) {
       return 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
@@ -1764,11 +1764,12 @@
       h.textContent = v.title;
       body.appendChild(h);
 
-      var p = document.createElement('p');
-      p.className = 'card-text';
-      p.textContent = v.desc || 'Description pending.';
-      if (!v.desc) p.classList.add('is-pending');
-      body.appendChild(p);
+      if (v.desc) {
+        var p = document.createElement('p');
+        p.className = 'card-text';
+        p.textContent = v.desc;
+        body.appendChild(p);
+      }
 
       var slot = document.createElement('span');
       slot.className = 'video-slot';
@@ -1805,8 +1806,10 @@
 
       codeEl.textContent = v.code;
       titleEl.textContent = v.title;
-      descEl.textContent = v.desc || 'DESCRIPTION PENDING — this write-up has not been added yet.';
-      descEl.classList.toggle('is-pending', !v.desc);
+      if (descEl) {
+        descEl.textContent = v.desc || '';
+        descEl.hidden = !v.desc;
+      }
       indexEl.textContent = pad(cursor + 1);
       totalEl.textContent = pad(VIDEOS.length);
 

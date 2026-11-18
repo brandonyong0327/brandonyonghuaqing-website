@@ -2097,6 +2097,8 @@ html.prj-open #bh-canvas {
 
 .vid-arrow-tag { display: none; }
 
+.vid-desc[hidden] { display: none; }
+
 .vid-desc {
   font-size: 0.88rem;
   line-height: 1.66;
