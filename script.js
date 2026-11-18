@@ -1452,9 +1452,15 @@
       '3': {
         code: 'PRJ_03', title: 'Java Programming',
         shots: [
-          { src: 'img-project-2.svg',  cap: 'CLASS STRUCTURE / MAIN ENTRY' },
-          { src: 'img-project-2b.svg', cap: 'COLLECTIONS / RECORD LIST' },
-          { src: 'img-project-2c.svg', cap: 'FILE I/O / DATA PERSISTS' }
+          { src: 'img-java-1.png', cap: 'LOGIN SCREEN / GROCERY STOCK' },
+          { src: 'img-java-2.png', cap: 'CREDENTIALS / ADMIN' },
+          { src: 'img-java-3.png', cap: 'MAIN MENU / INVENTORY OR LOGOUT' },
+          { src: 'img-java-4.png', cap: 'INVENTORY LIST / ID NAME PRICE QTY' },
+          { src: 'img-java-5.png', cap: 'INVALID INPUT / MESSAGE BOX' },
+          { src: 'img-java-6.png', cap: 'ADD ITEM / TABLE FILLED' },
+          { src: 'img-java-7.png', cap: 'UPDATE ITEM / CONFIRM' },
+          { src: 'img-java-8.png', cap: 'DELETE ITEM / CONFIRM' },
+          { src: 'img-java-9.png', cap: 'RECORD TABLE / STOCK ENTRY' }
         ]
       },
       '4': {
