@@ -1476,9 +1476,10 @@
       '5': {
         code: 'PRJ_05', title: 'Multimedia Design',
         shots: [
-          { src: 'img-project-5.svg',  cap: 'GRID SYSTEM / SPACING' },
-          { src: 'img-project-5b.svg', cap: 'TYPE SCALE / HIERARCHY' },
-          { src: 'img-project-5c.svg', cap: 'UI STATES / HOVER + PRESS' }
+          { src: 'img-md-1.jpg', cap: 'SURREAL LANDSCAPE / LAYERS IN PROGRESS' },
+          { src: 'img-md-2.jpg', cap: 'SURREAL LANDSCAPE / FINAL BLEND' },
+          { src: 'img-md-3.jpg', cap: 'POSTER / LAYERS IN PROGRESS' },
+          { src: 'img-md-4.jpg', cap: 'POSTER / FINAL ARTWORK' }
         ]
       }
     };
