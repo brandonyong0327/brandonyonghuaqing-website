@@ -1444,9 +1444,11 @@
       '2': {
         code: 'PRJ_02', title: 'Augmented Reality',
         shots: [
-          { src: 'img-project-4.svg',  cap: 'IMAGE TARGET / LOCKED' },
-          { src: 'img-project-4b.svg', cap: 'SCENE GRAPH / RELOCK OK' },
-          { src: 'img-project-4c.svg', cap: '3D CONTENT / ON MARKER' }
+          { src: 'img-ar-1.jpg', cap: 'AR TUTORIAL 1 / TARGET TRACKED' },
+          { src: 'img-ar-2.jpg', cap: 'AR TUTORIAL 2 / CHARACTER SET ON TARGET' },
+          { src: 'img-ar-3.jpg', cap: 'AR TUTORIAL 3 / TWO MODELS TRACKED' },
+          { src: 'img-ar-4.jpg', cap: 'AR TUTORIAL 4 / AUDIO PASS' },
+          { src: 'img-ar-5.jpg', cap: 'AR TUTORIAL 5 / DUCK TARGET' }
         ]
       },
       '3': {
