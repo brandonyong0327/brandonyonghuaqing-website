@@ -1458,51 +1458,51 @@
       '1': {
         code: 'PRJ_01', title: 'Animation',
         shots: [
-          { src: 'img-anim-1.png', cap: 'LOW-POLY TANK / FLAT SHADING' },
-          { src: 'img-anim-2.png', cap: 'WOOD-GRAIN CREATURE / MODELLED' },
-          { src: 'img-anim-3.png', cap: 'NEON STREET DIORAMA / SET BUILD' },
-          { src: 'img-anim-4.png', cap: 'INTERACTIVE SCENE / STATS PANEL' },
-          { src: 'img-anim-5.png', cap: 'CHIBI CHARACTER / STYLISED' },
-          { src: 'img-anim-6.png', cap: 'ISOMETRIC ROOM / PROP LAYOUT' }
+          { src: 'animation/img-anim-1.png', cap: 'LOW-POLY TANK / FLAT SHADING' },
+          { src: 'animation/img-anim-2.png', cap: 'WOOD-GRAIN CREATURE / MODELLED' },
+          { src: 'animation/img-anim-3.png', cap: 'NEON STREET DIORAMA / SET BUILD' },
+          { src: 'animation/img-anim-4.png', cap: 'INTERACTIVE SCENE / STATS PANEL' },
+          { src: 'animation/img-anim-5.png', cap: 'CHIBI CHARACTER / STYLISED' },
+          { src: 'animation/img-anim-6.png', cap: 'ISOMETRIC ROOM / PROP LAYOUT' }
         ]
       },
       '2': {
         code: 'PRJ_02', title: 'Augmented Reality',
         shots: [
-          { src: 'img-ar-1.jpg', cap: 'AR TUTORIAL 1 / TARGET TRACKED' },
-          { src: 'img-ar-2.jpg', cap: 'AR TUTORIAL 2 / CHARACTER SET ON TARGET' },
-          { src: 'img-ar-3.jpg', cap: 'AR TUTORIAL 3 / TWO MODELS TRACKED' },
-          { src: 'img-ar-4.jpg', cap: 'AR TUTORIAL 4 / AUDIO PASS' },
-          { src: 'img-ar-5.jpg', cap: 'AR TUTORIAL 5 / DUCK TARGET' }
+          { src: 'ar/img-ar-1.jpg', cap: 'AR TUTORIAL 1 / TARGET TRACKED' },
+          { src: 'ar/img-ar-2.jpg', cap: 'AR TUTORIAL 2 / CHARACTER SET ON TARGET' },
+          { src: 'ar/img-ar-3.jpg', cap: 'AR TUTORIAL 3 / TWO MODELS TRACKED' },
+          { src: 'ar/img-ar-4.jpg', cap: 'AR TUTORIAL 4 / AUDIO PASS' },
+          { src: 'ar/img-ar-5.jpg', cap: 'AR TUTORIAL 5 / DUCK TARGET' }
         ]
       },
       '3': {
         code: 'PRJ_03', title: 'Java Programming',
         shots: [
-          { src: 'img-java-1.png', cap: 'LOGIN SCREEN / GROCERY STOCK' },
-          { src: 'img-java-2.png', cap: 'CREDENTIALS / ADMIN' },
-          { src: 'img-java-3.png', cap: 'MAIN MENU / INVENTORY OR LOGOUT' },
-          { src: 'img-java-4.png', cap: 'INVENTORY LIST / ID NAME PRICE QTY' },
-          { src: 'img-java-5.png', cap: 'INVALID INPUT / MESSAGE BOX' },
-          { src: 'img-java-6.png', cap: 'ADD ITEM / TABLE FILLED' },
-          { src: 'img-java-7.png', cap: 'UPDATE ITEM / CONFIRM' },
-          { src: 'img-java-8.png', cap: 'DELETE ITEM / CONFIRM' },
-          { src: 'img-java-9.png', cap: 'RECORD TABLE / STOCK ENTRY' }
+          { src: 'java/img-java-1.png', cap: 'LOGIN SCREEN / GROCERY STOCK' },
+          { src: 'java/img-java-2.png', cap: 'CREDENTIALS / ADMIN' },
+          { src: 'java/img-java-3.png', cap: 'MAIN MENU / INVENTORY OR LOGOUT' },
+          { src: 'java/img-java-4.png', cap: 'INVENTORY LIST / ID NAME PRICE QTY' },
+          { src: 'java/img-java-5.png', cap: 'INVALID INPUT / MESSAGE BOX' },
+          { src: 'java/img-java-6.png', cap: 'ADD ITEM / TABLE FILLED' },
+          { src: 'java/img-java-7.png', cap: 'UPDATE ITEM / CONFIRM' },
+          { src: 'java/img-java-8.png', cap: 'DELETE ITEM / CONFIRM' },
+          { src: 'java/img-java-9.png', cap: 'RECORD TABLE / STOCK ENTRY' }
         ]
       },
       '4': {
         code: 'PRJ_04', title: 'Video Production',
         shots: [
-          { src: 'img-video-1.jpg', cap: 'PUSH / TITLE CARD' },
-          { src: 'img-video-2.jpg', cap: 'PUSH / NIGHT EXTERIOR' },
-          { src: 'img-video-3.jpg', cap: 'PUSH / GREEN SCREEN + CLOSING CARD' }
+          { src: 'video/img-video-1.jpg', cap: 'PUSH / TITLE CARD' },
+          { src: 'video/img-video-2.jpg', cap: 'PUSH / NIGHT EXTERIOR' },
+          { src: 'video/img-video-3.jpg', cap: 'PUSH / GREEN SCREEN + CLOSING CARD' }
         ]
       },
       '5': {
         code: 'PRJ_05', title: 'Multimedia Design',
         shots: [
-          { src: 'img-md-2.jpg', cap: 'SURREAL LANDSCAPE / BLENDED IMAGES' },
-          { src: 'img-md-4.jpg', cap: 'POSTER / HUMANITARIAN CONFLICT' }
+          { src: 'multimedia-design/img-md-2.jpg', cap: 'SURREAL LANDSCAPE / BLENDED IMAGES' },
+          { src: 'multimedia-design/img-md-4.jpg', cap: 'POSTER / HUMANITARIAN CONFLICT' }
         ]
       }
     };
