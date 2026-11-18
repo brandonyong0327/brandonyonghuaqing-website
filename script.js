@@ -1433,9 +1433,12 @@
       '1': {
         code: 'PRJ_01', title: 'Animation',
         shots: [
-          { src: 'img-project-1.svg',  cap: 'KEY POSES / TIMING PASS' },
-          { src: 'img-project-1b.svg', cap: 'IN-BETWEEN / MOTION ARC' },
-          { src: 'img-project-1c.svg', cap: 'RENDER PASS / FINAL CUT' }
+          { src: 'img-anim-1.png', cap: 'LOW-POLY TANK / FLAT SHADING' },
+          { src: 'img-anim-2.png', cap: 'WOOD-GRAIN CREATURE / MODELLED' },
+          { src: 'img-anim-3.png', cap: 'NEON STREET DIORAMA / SET BUILD' },
+          { src: 'img-anim-4.png', cap: 'INTERACTIVE SCENE / STATS PANEL' },
+          { src: 'img-anim-5.png', cap: 'CHIBI CHARACTER / STYLISED' },
+          { src: 'img-anim-6.png', cap: 'ISOMETRIC ROOM / PROP LAYOUT' }
         ]
       },
       '2': {
