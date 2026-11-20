@@ -614,14 +614,6 @@
       var shrink = 1 - 0.55 * Math.max(0, (m.t - 0.62) / 0.38);
       var hot = Math.max(0, (m.t - 0.6) / 0.4);         /* blueshift just before capture */
 
-      /* molten sparks shed along the path, not a smooth dot chain */
-      m.trail.push({
-        x: px + (Math.random() - 0.5) * m.size * 1.5,
-        y: py + (Math.random() - 0.5) * m.size * 1.5,
-        r: m.size * (0.09 + Math.random() * 0.28)
-      });
-      if (m.trail.length > 18) m.trail.shift();
-
       var dirA = Math.atan2(py - cy, px - cx);
 
       /* filament: space bending between the rock and the horizon */
@@ -644,20 +636,6 @@
         ctx.stroke();
         ctx.restore();
       }
-
-      /* trail */
-      ctx.save();
-      ctx.globalCompositeOperation = 'lighter';
-      for (k = 0; k < m.trail.length; k++) {
-        var tp = m.trail[k];
-        var frac = k / m.trail.length;
-        ctx.beginPath();
-        ctx.arc(tp.x, tp.y, Math.max(0.4, tp.r * (0.35 + frac * 0.85) * shrink), 0, Math.PI * 2);
-        ctx.fillStyle = (frac > 0.55
-          ? 'rgba(255, 208, 152, ' : 'rgba(214, 150, 104, ') + (frac * 0.78 * vis) + ')';
-        ctx.fill();
-      }
-      ctx.restore();
 
       /* the rock itself: round cratered body, molten rim, hot leading edge */
       var S = Math.max(1.6, m.size * shrink);
