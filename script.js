@@ -659,21 +659,13 @@
       }
       ctx.restore();
 
-      /* the rock itself: irregular cratered body, molten rim, hot leading edge */
+      /* the rock itself: round cratered body, molten rim, hot leading edge */
       var S = Math.max(1.6, m.size * shrink);
-      var vn2 = m.verts.length;
       var spinA = m.spin * m.t * 2.2;
 
       function rockPath(c) {
         c.beginPath();
-        for (var q = 0; q < vn2; q++) {
-          var va = q / vn2 * Math.PI * 2 + spinA;
-          var vr = S * m.verts[q];
-          var vx = Math.cos(va) * vr * stretch;
-          var vy = Math.sin(va) * vr * 0.92;
-          if (q) c.lineTo(vx, vy); else c.moveTo(vx, vy);
-        }
-        c.closePath();
+        c.ellipse(0, 0, S, S * 0.96, 0, 0, Math.PI * 2);
       }
 
       ctx.save();
@@ -691,11 +683,16 @@
       ctx.fillStyle = body;
       ctx.fill();
 
+      /* round silhouette: clip so every pit stays inside the sphere */
+      ctx.save();
+      rockPath(ctx);
+      ctx.clip();
+
       /* impact pits: dark bowl, lit upper rim, shadowed floor */
       for (k = 0; k < m.craters.length; k++) {
         var cr = m.craters[k];
         var ca = cr.a + spinA;
-        var cxp = Math.cos(ca) * cr.d * S * stretch;
+        var cxp = Math.cos(ca) * cr.d * S * 0.92;
         var cyp = Math.sin(ca) * cr.d * S * 0.9;
         var crx = Math.max(0.5, cr.r * S * 1.18);
         var cry = Math.max(0.4, cr.r * S * 0.86);
@@ -727,7 +724,7 @@
         var sp = m.spots[k];
         var sa = sp.a + spinA;
         ctx.beginPath();
-        ctx.arc(Math.cos(sa) * sp.d * S * stretch, Math.sin(sa) * sp.d * S * 0.9,
+        ctx.arc(Math.cos(sa) * sp.d * S * 0.92, Math.sin(sa) * sp.d * S * 0.92,
                 Math.max(0.3, sp.r * S), 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(74, 88, 96, 0.85)';
         ctx.fill();
@@ -742,6 +739,8 @@
         ctx.fillStyle = 'rgba(255, 255, 255, ' + (0.55 - k * 0.2) + ')';
         ctx.fill();
       }
+
+      ctx.restore();
 
       /* bold cartoon outline last, so it caps pits and glints */
       rockPath(ctx);
