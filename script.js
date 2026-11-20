@@ -506,6 +506,12 @@
      =========================================================== */
   var impactRocks = [];
   var shockRings = [];
+  var sparks = [];          /* molten sparks: sparse while flying, burst on capture */
+
+  function spawnSpark(x, y, vx, vy, r, decay) {
+    sparks.push({ x: x, y: y, vx: vx, vy: vy, r: r, life: 1, decay: decay || 0.035 });
+    if (sparks.length > 190) sparks.splice(0, sparks.length - 190);
+  }
   var flashAmt = 0;
 
   function spawnMeteors(count, angle) {
@@ -565,7 +571,7 @@
   }
 
   function drawMeteors(ctx, cx, cy, R) {
-    if (!impactRocks.length && !shockRings.length && flashAmt <= 0.002) return;
+    if (!impactRocks.length && !shockRings.length && !sparks.length && flashAmt <= 0.002) return;
 
     var i, k, m;
 
@@ -600,6 +606,18 @@
       /* swallowed */
       if (m.t >= 1 || rad < R * 0.92) {
         impactRocks.splice(i, 1);
+
+        /* capture burst: a short fan of sparks thrown out of the horizon */
+        for (var b = 0; b < 20; b++) {
+          var ba = Math.random() * Math.PI * 2;
+          var bs = R * (0.014 + Math.random() * 0.05);
+          spawnSpark(px + (Math.random() - 0.5) * m.size,
+                     py + (Math.random() - 0.5) * m.size,
+                     Math.cos(ba) * bs, Math.sin(ba) * bs * 0.86,
+                     Math.max(0.7, m.size * (0.14 + Math.random() * 0.30)),
+                     0.017 + Math.random() * 0.022);
+        }
+
         shockRings.push({ r: R * 0.96, life: 1, w: 2.2, sp: 0.055 });
         shockRings.push({ r: R * 0.78, life: 0.7, w: 1.1, sp: 0.034 });
         if (shockRings.length > 6) shockRings.splice(0, shockRings.length - 6);
@@ -615,6 +633,16 @@
       var hot = Math.max(0, (m.t - 0.6) / 0.4);         /* blueshift just before capture */
 
       var dirA = Math.atan2(py - cy, px - cx);
+
+      /* a few embers break off while the rock is still flying */
+      if (m.t > 0.12 && Math.random() < 0.62) {
+        spawnSpark(px + (Math.random() - 0.5) * m.size * 1.3,
+                   py + (Math.random() - 0.5) * m.size * 1.3,
+                   (Math.random() - 0.5) * R * 0.012,
+                   (Math.random() - 0.5) * R * 0.010,
+                   Math.max(0.6, m.size * (0.11 + Math.random() * 0.22)),
+                   0.022 + Math.random() * 0.026);
+      }
 
       /* the rock itself: round cratered body, molten rim, hot leading edge */
       var S = Math.max(1.6, m.size * shrink);
@@ -724,6 +752,29 @@
       ctx.ellipse(-S * stretch * 0.82, 0, S * 0.55 * (1 + hot * 0.7), S * 0.62, 0, 0, Math.PI * 2);
       ctx.fillStyle = (m.hue ? 'rgba(255, 224, 176, ' : 'rgba(236, 250, 255, ') + (0.40 + hot * 0.35) + ')';
       ctx.fill();
+      ctx.restore();
+    }
+
+    /* --- molten sparks: embers in flight + capture bursts --- */
+    if (sparks.length) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+      for (i = sparks.length - 1; i >= 0; i--) {
+        var sk = sparks[i];
+        sk.x += sk.vx;
+        sk.y += sk.vy;
+        sk.vx *= 0.93;
+        sk.vy *= 0.93;
+        sk.life -= sk.decay;
+        if (sk.life <= 0) { sparks.splice(i, 1); continue; }
+
+        var heat = sk.life;                                  /* 1 = hottest white-orange */
+        ctx.beginPath();
+        ctx.arc(sk.x, sk.y, Math.max(0.35, sk.r * (0.45 + heat * 0.55)), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, ' + Math.round(150 + heat * 105) + ', ' +
+                        Math.round(96 + heat * 140) + ', ' + (0.22 + heat * 0.72) + ')';
+        ctx.fill();
+      }
       ctx.restore();
     }
 
