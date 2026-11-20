@@ -2706,12 +2706,14 @@ body.is-leaving {
   place-items: center;
   font-family: var(--font-mono);
   font-size: 1.12rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   color: rgba(53, 231, 255, 0.95);
   background: rgba(6, 10, 22, 0.8);
-  border: 1.5px solid rgba(53, 231, 255, 0.5);
+  border: 2.5px solid rgba(53, 231, 255, 0.62);
   border-radius: 999px;
+  -webkit-text-stroke: 0.7px rgba(53, 231, 255, 0.9);
+  text-shadow: 0 0 10px rgba(53, 231, 255, 0.35);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   box-shadow: inset 0 0 10px rgba(53, 231, 255, 0.08);
