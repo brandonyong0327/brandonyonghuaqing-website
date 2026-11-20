@@ -616,27 +616,6 @@
 
       var dirA = Math.atan2(py - cy, px - cx);
 
-      /* filament: space bending between the rock and the horizon */
-      if (m.t > 0.30) {
-        var ta = Math.min(1, (m.t - 0.30) * 2.6);
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-        ctx.beginPath();
-        ctx.strokeStyle = 'rgba(160, 230, 255, ' + (0.20 * ta) + ')';
-        ctx.lineWidth = Math.max(0.8, m.size * 0.6);
-        ctx.moveTo(px * 0.52, py * 0.52);
-        ctx.quadraticCurveTo(px * 0.70 - (py - cy) * 0.10, py * 0.70 + (px - cx) * 0.10, px, py);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.strokeStyle = 'rgba(190, 250, 255, ' + (0.08 * ta) + ')';
-        ctx.lineWidth = Math.max(1.2, m.size * 1.4);
-        ctx.moveTo(px * 0.52, py * 0.52);
-        ctx.quadraticCurveTo(px * 0.70 - (py - cy) * 0.10, py * 0.70 + (px - cx) * 0.10, px, py);
-        ctx.stroke();
-        ctx.restore();
-      }
-
       /* the rock itself: round cratered body, molten rim, hot leading edge */
       var S = Math.max(1.6, m.size * shrink);
       var spinA = m.spin * m.t * 2.2;
