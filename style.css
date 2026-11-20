@@ -1623,10 +1623,10 @@ td.empty { color: rgba(107, 131, 166, 0.5); }
 .form-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.16em;
-  color: rgba(53, 231, 255, 0.8);
-  margin-bottom: 0.55rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  color: rgba(53, 231, 255, 0.85);
+  margin-bottom: 0.6rem;
 }
 
 .form-label i {
@@ -1640,9 +1640,9 @@ input[type="email"],
 textarea,
 select {
   width: 100%;
-  padding: 0.95rem 1.1rem;
+  padding: 1rem 1.15rem;
   font-family: var(--font-mono);
-  font-size: 1.02rem;
+  font-size: 1.12rem;
   letter-spacing: 0.04em;
   color: var(--ice);
   background: rgba(6, 10, 22, 0.62);
@@ -1656,7 +1656,7 @@ select {
   -webkit-appearance: none;
 }
 
-textarea { resize: vertical; min-height: 190px; line-height: 1.75; }
+textarea { resize: vertical; min-height: 215px; line-height: 1.75; }
 
 input::placeholder,
 textarea::placeholder {
@@ -1697,7 +1697,7 @@ select option { background: #060a16; color: var(--ice); }
 
 .form-note {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   color: var(--dim);
   margin-top: 1rem;
@@ -1705,7 +1705,7 @@ select option { background: #060a16; color: var(--ice); }
 
 .form-msg {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   letter-spacing: 0.1em;
   margin-top: 1rem;
   min-height: 1.1rem;
