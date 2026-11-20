@@ -6,7 +6,7 @@
 <link rel="icon" href="data:,">
 <title>HOME // DEEP SPACE PORTFOLIO</title>
 <meta name="description" content="Personal portfolio interface of a Multimedia Technology student, presented as a deep space black hole HUD console.">
-<link rel="stylesheet" href="style.css?v=20261120k">
+<link rel="stylesheet" href="style.css?v=20261120m">
 </head>
 <body data-module="HOME">
 
@@ -83,6 +83,9 @@
             <span class="bh-hint__desk">DRAG TO SPIN &nbsp;·&nbsp; CLICK TO ZOOM &nbsp;·&nbsp; CTRL + SCROLL</span>
             <span class="bh-hint__touch">SWIPE TO SPIN &nbsp;·&nbsp; PINCH TO ZOOM &nbsp;·&nbsp; TAP TO PULSE</span>
           </div>
+          <button class="bh-help-btn" id="bhHelpBtn" type="button"
+                  aria-expanded="false" aria-controls="bhHelp"
+                  aria-label="What can I do with the black hole?">?</button>
         </div>
       </div>
     </div>
@@ -196,6 +199,43 @@
   </section>
 
 </main>
+
+<div class="bh-help" id="bhHelp" hidden>
+  <div class="bh-help__card" role="dialog" aria-modal="true" aria-labelledby="bhHelpTitle">
+    <div class="bh-help__head">
+      <h3 class="bh-help__title" id="bhHelpTitle">BLACK HOLE / INTERACTIONS</h3>
+      <button class="bh-help__close" type="button">ESC</button>
+    </div>
+    <div class="bh-help__rows">
+      <div class="bh-help__row">
+        <b>DRAG</b>
+        <span>Drag sideways to spin the accretion disk, up or down to change its tilt. Let go mid-move and the disk keeps the momentum.</span>
+      </div>
+      <div class="bh-help__row">
+        <b>TAP / CLICK</b>
+        <span>Debris drops in from the side you tapped, spirals down the disk and gets swallowed — with a burst of sparks and a shock ring.</span>
+      </div>
+      <div class="bh-help__row">
+        <b>DOUBLE TAP</b>
+        <span>Two taps within 0.26 s zoom to 1.42× and drop a heavier shower of rocks.</span>
+      </div>
+      <div class="bh-help__row">
+        <b>PINCH / CTRL + SCROLL</b>
+        <span>Zoom the hole between 0.72× and 1.6×. Without Ctrl the wheel just scrolls the page.</span>
+      </div>
+      <div class="bh-help__row">
+        <b>KEYS</b>
+        <span>Left / right arrows spin the disk, plus and minus zoom, Enter or Space drops meteors. Works once the hole has focus.</span>
+      </div>
+      <div class="bh-help__row">
+        <b>IDLE</b>
+        <span>Leave it alone for 3.6 s and the disk settles back to its rest angle and default zoom.</span>
+      </div>
+    </div>
+    <p class="bh-help__foot">// TWO CANVAS LAYERS / 30 FPS ON TOUCH DEVICES</p>
+  </div>
+</div>
+
 <section class="hud-tray" aria-hidden="true">
 <aside class="hud-panel hud-left">
   <div class="panel-head">MISSION LOG <b>01</b></div>
@@ -272,6 +312,6 @@
   <div class="cb-item cb-push">&copy; 2026 Brandon Yong Hua Qing &nbsp;/&nbsp; BI24110137</div>
 </footer>
 
-<script src="script.js?v=20261120k"></script>
+<script src="script.js?v=20261120m"></script>
 </body>
 </html>

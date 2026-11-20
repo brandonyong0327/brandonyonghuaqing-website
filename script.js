@@ -1932,6 +1932,53 @@
   })();
 
   /* ===========================================================
+     12B. BLACK HOLE INTERACTION HELP
+     =========================================================== */
+  (function () {
+    var btn = document.getElementById('bhHelpBtn');
+    var modal = document.getElementById('bhHelp');
+    if (!btn || !modal) return;
+
+    var lastFocus = null;
+
+    function isOpen() { return !modal.hasAttribute('hidden'); }
+
+    function openHelp() {
+      lastFocus = document.activeElement;
+      modal.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      var closer = modal.querySelector('.bh-help__close');
+      if (closer) closer.focus();
+    }
+
+    function closeHelp() {
+      if (!isOpen()) return;
+      modal.setAttribute('hidden', '');
+      btn.setAttribute('aria-expanded', 'false');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isOpen()) closeHelp(); else openHelp();
+    });
+
+    /* the stage turns taps into meteors: keep the button out of that path */
+    ['pointerdown', 'pointerup', 'pointermove', 'pointercancel'].forEach(function (name) {
+      btn.addEventListener(name, function (e) { e.stopPropagation(); });
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal || e.target.closest('.bh-help__close')) closeHelp();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeHelp();
+    });
+  })();
+
+  /* ===========================================================
      13. GO
      =========================================================== */
   if (document.readyState === 'loading') {
