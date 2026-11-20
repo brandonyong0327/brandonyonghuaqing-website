@@ -11,7 +11,7 @@
      the backing store hard on touch devices, keep the crisp 2x on desktop. */
   var coarse = window.matchMedia('(pointer: coarse)').matches;
   var isMobile = coarse || /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(navigator.userAgent);
-  var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.4 : 2);
+  var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.15 : 2);
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -----------------------------------------------------------
@@ -109,7 +109,7 @@
     if (!space) return;
 
     var w = space.w, h = space.h;
-    var starCount = w < 820 ? 105 : 240;
+    var starCount = w < 820 ? 72 : 240;
 
     stars = [];
     for (var i = 0; i < starCount; i++) {
@@ -125,7 +125,7 @@
     }
 
     dust = [];
-    var dustCount = w < 820 ? 18 : 44;
+    var dustCount = w < 820 ? 12 : 44;
     for (var d = 0; d < dustCount; d++) {
       dust.push({
         x: rnd(d * 31.1) * w,
@@ -138,7 +138,7 @@
     }
 
     orbits = [];
-    var orbitCount = w < 820 ? 2 : 4;
+    var orbitCount = w < 820 ? 1 : 4;
     for (var o = 0; o < orbitCount; o++) {
       orbits.push({
         cx: w * (0.5 + (rnd(o * 61.7) - 0.5) * 0.5),
@@ -337,7 +337,7 @@
     ctx.fill();
 
     // pass 1 — soft plasma bands: wide low-alpha strokes merge into a glow
-    var bands = w < 820 ? 8 : 12;
+    var bands = w < 820 ? 5 : 12;
     for (var bi = 0; bi < bands; bi++) {
       var bp = bi / (bands - 1);
       var br = R * (1.10 + bp * 1.42);
@@ -354,7 +354,7 @@
     }
 
     // pass 2 — thin bright streams drifting at different speeds
-    var streams = w < 820 ? 12 : 20;
+    var streams = w < 820 ? 8 : 20;
     for (var sti = 0; sti < streams; sti++) {
       var sp2 = sti / (streams - 1);
       var sr = R * (1.12 + sp2 * 1.48);
@@ -461,7 +461,7 @@
     ctx.restore();
 
     /* --- orbiting fragments / asteroids --- */
-    var fragCount = w < 820 ? 7 : 14;
+    var fragCount = w < 820 ? 5 : 14;
     ctx.save();
     ctx.translate(cx, cy);
     for (var qi = 0; qi < fragCount; qi++) {
@@ -510,14 +510,15 @@
 
   function spawnSpark(x, y, vx, vy, r, decay) {
     sparks.push({ x: x, y: y, vx: vx, vy: vy, r: r, life: 1, decay: decay || 0.035 });
-    if (sparks.length > 190) sparks.splice(0, sparks.length - 190);
+    var sparkCap = isMobile ? 90 : 190;
+    if (sparks.length > sparkCap) sparks.splice(0, sparks.length - sparkCap);
   }
   var flashAmt = 0;
 
   function spawnMeteors(count, angle) {
     if (!bh || reduced) return;
     var base = Math.min(bh.w, bh.h) * 0.235 * bhView.zoom;
-    var n = bh.w < 820 ? Math.max(2, Math.round(count * 0.6)) : count;
+    var n = bh.w < 820 ? Math.max(2, Math.round(count * 0.45)) : count;
 
     for (var i = 0; i < n; i++) {
       /* rocks come in from the side you tapped, spread over a small fan */
@@ -562,7 +563,8 @@
         trail: []
       });
     }
-    if (impactRocks.length > 26) impactRocks.splice(0, impactRocks.length - 26);
+    var rockCap = isMobile ? 10 : 26;
+    if (impactRocks.length > rockCap) impactRocks.splice(0, impactRocks.length - rockCap);
 
     shockRings.push({ r: base * 1.02, life: 1, w: 2.8, sp: 0.046 });
     shockRings.push({ r: base * 0.84, life: 0.72, w: 1.3, sp: 0.030 });
@@ -608,7 +610,8 @@
         impactRocks.splice(i, 1);
 
         /* capture burst: a short fan of sparks thrown out of the horizon */
-        for (var b = 0; b < 20; b++) {
+        var burstN = isMobile ? 12 : 20;
+        for (var b = 0; b < burstN; b++) {
           var ba = Math.random() * Math.PI * 2;
           var bs = R * (0.014 + Math.random() * 0.05);
           spawnSpark(px + (Math.random() - 0.5) * m.size,
@@ -1072,7 +1075,9 @@
   var shakeActive = false;
 
   function applyShake() {
-    if (reduced) return;
+    /* the tremble re-composites the whole page every frame; on phones that
+       costs more than it adds, so the canvas keeps the feedback instead */
+    if (reduced || isMobile) return;
     if (shakeAmt > 0.004) {
       shakeAmt *= 0.90;
       var amp = shakeAmt * 8;
